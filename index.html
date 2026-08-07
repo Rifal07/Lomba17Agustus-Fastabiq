@@ -29,10 +29,10 @@
         }
     </script>
     <style>
-        .tab-content {
+        .tab-content, .rundown-content {
             display: none;
         }
-        .tab-content.active {
+        .tab-content.active, .rundown-content.active {
             display: block;
         }
         .faq-content {
@@ -49,6 +49,14 @@
             display: flex;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        /* Custom pulsing glow for donation CTA */
+        @keyframes subtle-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(234, 179, 8, 0.8); }
+        }
+        .donation-glow {
+            animation: subtle-glow 3s infinite;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 antialiased selection:bg-red-200 selection:text-red-900 relative">
@@ -64,34 +72,45 @@
                         <p class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">RSU Fastabiq Sehat</p>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                    <a href="#beranda" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Beranda</a>
-                    <a href="#sambutan" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Sambutan</a>
-                    <a href="#jadwal" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Jadwal</a>
-                    <a href="#squad-futsal" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Tim & Skuad</a>
-                    <a href="#tatatertib" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Tata Tertib</a>
-                    <a href="#lomba" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Cabang Lomba</a>
-                    <a href="#galeri" class="text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Galeri</a>
-                    <a href="#pendaftaran" class="text-sm font-semibold text-white bg-rsblue px-5 py-2.5 rounded-full shadow hover:bg-rsbluehover hover:shadow-md transition-all flex items-center gap-2">
-                        <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Daftar Lomba
+                <div class="hidden lg:flex items-center space-x-5 xl:space-x-7">
+                    <a href="#beranda" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Beranda</a>
+                    <a href="#sambutan" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Sambutan</a>
+                    <a href="#rundown" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Rundown</a>
+                    <a href="#jadwal" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Jadwal & Tim</a>
+                    <a href="#tatatertib" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Tata Tertib</a>
+                    <a href="#lomba" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Cabang Lomba</a>
+                    <a href="#sponsorship" class="text-xs xl:text-sm font-semibold text-gray-700 hover:text-rsblue transition-colors">Sponsor</a>
+                    <button onclick="openDonaturModal()" class="text-xs xl:text-sm font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 px-3.5 py-1.5 rounded-full border border-amber-300 transition-all flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="heart-handshake" class="w-4 h-4 text-amber-600"></i> Infaq & Sponsor
+                    </button>
+                    <a href="#pendaftaran" class="text-xs xl:text-sm font-semibold text-white bg-rsblue px-4 py-2 rounded-full shadow hover:bg-rsbluehover hover:shadow-md transition-all flex items-center gap-1.5">
+                        <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Daftar
                     </a>
                 </div>
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center gap-2">
+                    <button onclick="openDonaturModal()" class="text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-1.5 rounded-lg border border-amber-300 flex items-center gap-1">
+                        <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-amber-600"></i> Infaq
+                    </button>
                     <button id="mobile-menu-btn" class="text-gray-700 hover:text-rsblue focus:outline-none p-2 rounded-lg bg-gray-100">
                         <i data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0">
             <div class="px-4 pt-3 pb-5 space-y-2">
                 <a href="#beranda" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Beranda</a>
-                <a href="#sambutan" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Sambutan</a>
-                <a href="#jadwal" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Jadwal Kegiatan</a>
-                <a href="#squad-futsal" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Tim & Skuad Futsal</a>
+                <a href="#sambutan" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Sambutan Pimpinan</a>
+                <a href="#rundown" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Rundown Kegiatan</a>
+                <a href="#jadwal" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Jadwal & Pengelompokan Tim</a>
+                <a href="#squad-futsal" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Skuad Futsal</a>
                 <a href="#tatatertib" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Tata Tertib Umum</a>
                 <a href="#lomba" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Cabang Lomba</a>
-                <a href="#galeri" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Galeri & Poster</a>
+                <a href="#sponsorship" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-rsblue hover:bg-blue-50 rounded-md">Sponsor & Mitra</a>
+                <button onclick="openDonaturModal()" class="w-full text-left px-3 py-2 text-base font-medium text-amber-900 bg-amber-50 hover:bg-amber-100 rounded-md flex items-center justify-between">
+                    <span>❤️ Donatur & Infaq Lomba</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
                 <a href="#pendaftaran" class="block px-3 py-2 text-base font-medium text-white bg-rsblue hover:bg-rsbluehover rounded-md text-center flex justify-center items-center gap-2 shadow">
                     <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Form Pendaftaran
                 </a>
@@ -102,7 +121,7 @@
     <section id="beranda" class="pt-24 sm:pt-28 pb-4 bg-slate-900 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
             <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-black/40 relative group">
-                <img src="Hero Section Update.png" alt="Semarak Kemerdekaan 81 RSU Fastabiq Sehat PKU Muhammadiyah" class="w-full h-auto object-contain block mx-auto transition-transform duration-500 hover:scale-[1.005]" onerror="this.onerror=null; this.src='https://placehold.co/1280x640/1e3a8a/ffffff?text=SEMARAK+KEMERDEKAAN+81+RSU+FASTABIQ';">
+                <img src="Hero Section.png" alt="Semarak Kemerdekaan 81 RSU Fastabiq Sehat PKU Muhammadiyah" class="w-full h-auto object-contain block mx-auto transition-transform duration-500 hover:scale-[1.005]" onerror="this.onerror=null; this.src='https://placehold.co/1280x640/1e3a8a/ffffff?text=SEMARAK+KEMERDEKAAN+81+RSU+FASTABIQ';">
             </div>
         </div>
     </section>
@@ -138,12 +157,15 @@
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-end shrink-0">
-                    <a href="#pendaftaran" class="bg-rsyellow text-rsblue hover:bg-yellow-400 font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95">
+                <div class="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-end shrink-0 flex-wrap">
+                    <button onclick="openDonaturModal()" class="bg-amber-400 hover:bg-amber-300 text-amber-950 font-extrabold px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5 border border-amber-300 hover:scale-105 active:scale-95">
+                        <i data-lucide="heart-handshake" class="w-4 h-4"></i> Infaq & Sponsor
+                    </button>
+                    <a href="#pendaftaran" class="bg-rsyellow text-rsblue hover:bg-yellow-400 font-extrabold px-3.5 py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95">
                         <i data-lucide="clipboard-signature" class="w-4 h-4"></i> Daftar Lomba
                     </a>
-                    <a href="#jadwal" class="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm border border-white/30 backdrop-blur-sm shadow transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95">
-                        <i data-lucide="calendar-days" class="w-4 h-4 text-rsyellow"></i> Lihat Jadwal
+                    <a href="#rundown" class="bg-white/15 hover:bg-white/25 text-white font-semibold px-3.5 py-2.5 rounded-xl text-xs sm:text-sm border border-white/30 backdrop-blur-sm shadow transition-all flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95">
+                        <i data-lucide="calendar-days" class="w-4 h-4 text-rsyellow"></i> Rundown
                     </a>
                 </div>
 
@@ -278,116 +300,241 @@
         </div>
     </section>
 
-    <section id="jadwal" class="py-16 bg-white border-t border-gray-200">
+    <section id="rundown" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Agenda & Waktu</span>
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Jadwal Detil Acara</span>
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
-                    <i data-lucide="calendar-check" class="w-8 h-8 text-primary"></i> Jadwal & Pengelompokan Tim
+                    <i data-lucide="clock" class="w-8 h-8 text-primary"></i> Rundown Resmi Seluruh Cabang Lomba
                 </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Rangkaian acara, lokasi pelaksanaan, serta pembagian grup tim beregu.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">Pilih cabang lomba / hari di bawah ini untuk melihat jadwal rincian acara dari awal hingga selesai.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-16">
-                <div class="space-y-4">
-                    <div class="bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-100 border-l-4 border-l-rsblue hover:shadow-md transition-all">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="w-12 h-12 bg-blue-100 text-rsblue rounded-full flex items-center justify-center shrink-0">
-                                <i data-lucide="goal" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900">Lomba Mini Soccer</h3>
-                                <p class="text-sm font-semibold text-primary">12 & 14 Agustus 2026</p>
-                            </div>
-                        </div>
-                        <div class="pl-16 text-sm text-gray-700 space-y-1">
-                            <p class="flex items-center gap-2">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i> Safin Football Academy
-                                <a href="https://maps.google.com/?q=Safin+Football+Academy" target="_blank" class="text-xs text-rsblue hover:underline flex items-center gap-0.5 ml-1"><i data-lucide="external-link" class="w-3 h-3"></i> Maps</a>
-                            </p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-gray-500"></i> PJ: dr. Teguh & Pak Ali</p>
-                        </div>
-                    </div>
+            <!-- Rundown Tab Selector -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-8 border-b border-gray-200 pb-4">
+                <button onclick="openRundownTab(event, 'rundown-hari1')" class="rundown-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all bg-rsblue text-white shadow-md flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Hari 1: Pembukaan, Tarik Tambang & Voli Sarung
+                </button>
+                <button onclick="openRundownTab(event, 'rundown-minisoccer')" class="rundown-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-gray-700 bg-gray-100 hover:bg-blue-50 hover:text-rsblue transition-all border border-gray-200 flex items-center gap-2">
+                    <i data-lucide="goal" class="w-4 h-4"></i> Hari 2 & 3: Mini Soccer
+                </button>
+                <button onclick="openRundownTab(event, 'rundown-blindmakeup')" class="rundown-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-gray-700 bg-gray-100 hover:bg-blue-50 hover:text-rsblue transition-all border border-gray-200 flex items-center gap-2">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Hari 3: Blind Make Up
+                </button>
+            </div>
 
-                    <div class="bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-100 border-l-4 border-l-primary hover:shadow-md transition-all">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="w-12 h-12 bg-red-100 text-primary rounded-full flex items-center justify-center shrink-0">
-                                <i data-lucide="grab" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900">Tarik Tambang & Voli Sarung</h3>
-                                <p class="text-sm font-semibold text-primary">11 Agustus 2026</p>
-                            </div>
-                        </div>
-                        <div class="pl-16 text-sm text-gray-700 space-y-1">
-                            <p class="flex items-center gap-2">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i> Area Lapangan Parkir Selatan
-                                <a href="https://maps.google.com/?q=RSU+Fastabiq+Sehat" target="_blank" class="text-xs text-rsblue hover:underline flex items-center gap-0.5 ml-1"><i data-lucide="external-link" class="w-3 h-3"></i> Maps</a>
-                            </p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-gray-500"></i> PJ Tarik Tambang: Mas Fadhil</p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-gray-500"></i> PJ Voli Sarung: Pak Ali & Pak Agus</p>
-                        </div>
+            <!-- RUNDOWN TAB 1: TARIK TAMBANG & VOLI SARUNG (11 AGUSTUS 2026) -->
+            <div id="rundown-hari1" class="rundown-content active bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
+                    <div>
+                        <span class="px-3 py-1 bg-red-100 text-primary text-xs font-bold rounded-full uppercase tracking-wider">Rundown Resmi Hari Ke-1</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-rsblue mt-1 flex items-center gap-2">
+                            Pembukaan, Tarik Tambang & Voli Sarung
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-0.5">Selasa, 11 Agustus 2026 • Lapangan Parkir Selatan RSU Fastabiq</p>
                     </div>
-
-                    <div class="bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-100 border-l-4 border-l-rsyellow hover:shadow-md transition-all">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center shrink-0">
-                                <i data-lucide="sparkles" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900">Blind Make Up</h3>
-                                <p class="text-sm font-semibold text-primary">14 Agustus 2026</p>
-                            </div>
-                        </div>
-                        <div class="pl-16 text-sm text-gray-700 space-y-1">
-                            <p class="flex items-center gap-2">
-                                <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i> Aula Masjid Darul Afiyah
-                                <a href="https://maps.google.com/?q=RSU+Fastabiq+Sehat" target="_blank" class="text-xs text-rsblue hover:underline flex items-center gap-0.5 ml-1"><i data-lucide="external-link" class="w-3 h-3"></i> Maps</a>
-                            </p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-gray-500"></i> PJ: Bu Anisah</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-rsblue text-white p-6 rounded-2xl shadow-md border-l-4 border-l-rsgreen relative overflow-hidden">
-                        <div class="flex items-center gap-4 mb-2 relative z-10">
-                            <div class="w-12 h-12 bg-blue-800 text-white rounded-full flex items-center justify-center shrink-0">
-                                <i data-lucide="party-popper" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Warming-up & Penutupan</h3>
-                                <p class="text-sm text-blue-200">Coming Soon</p>
-                            </div>
-                        </div>
-                        <div class="pl-16 text-sm space-y-1 relative z-10">
-                            <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-rsyellow"></i> Area RSU Fastabiq</p>
-                            <p class="flex items-center gap-2"><i data-lucide="user-check" class="w-4 h-4 text-blue-300"></i> Panitia Semarak 81</p>
-                        </div>
-                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-rsblue px-3.5 py-2 rounded-xl border border-gray-200 shrink-0 shadow-sm hover:bg-blue-50 transition-colors">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> Lokasi Parkir Selatan
+                    </a>
                 </div>
 
-                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 shadow-sm text-center">
-                    <h3 class="font-bold text-gray-800 mb-3 flex items-center justify-center gap-2"><i data-lucide="image" class="w-5 h-5 text-rsblue"></i> Poster Jadwal Resmi</h3>
-                    <div class="overflow-hidden rounded-xl border border-gray-200 shadow bg-white cursor-pointer group" onclick="openImageModal('Pos 2.png', 'Jadwal & Info Resmi Semarak 81')">
-                        <img src="Pos 2.png" alt="Pos 2 Jadwal" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/1e3a8a/ffffff?text=Poster+Jadwal+Resmi';">
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">Klik gambar untuk memperbesar poster jadwal & kontak QR Code.</p>
+                <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+                    <table class="w-full text-left text-xs sm:text-sm text-gray-700">
+                        <thead class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+                            <tr>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-44"><i data-lucide="timer" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Waktu</th>
+                                <th scope="col" class="px-4 py-3.5"><i data-lucide="activity" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Agenda / Acara</th>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-48"><i data-lucide="user-check" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> PIC / Penanggung Jawab</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">06.00 - 06.30 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Briefing Panitia & Persiapan Arena</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Ketua Panitia</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">06.30 - 07.00 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Registrasi / Daftar Ulang Kontingen Tim</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Udah & Fadhil</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-red-50/30">
+                                <td class="px-4 py-3 font-extrabold text-primary whitespace-nowrap"><span class="bg-red-50 text-primary px-2.5 py-1 rounded-md border border-red-100">07.00 - 07.10 WIB</span></td>
+                                <td class="px-4 py-3 font-bold text-gray-900">Pembukaan Resmi Semarak Kemerdekaan 81</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">MC</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.10 - 07.20 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Pembacaan Doa Pembuka</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Pak Arova</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.20 - 07.30 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Sambutan Pimpinan BPH & Direksi RSU Fastabiq</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">BPH / Direksi</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.30 - 07.35 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Pembacaan Tata Tertib & Aturan Lomba</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">MC</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.35 - 07.45 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Simulasi Lomba Tarik Tambang & Voli Sarung</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Fadhil & Ali</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-amber-50/50">
+                                <td class="px-4 py-3 font-extrabold text-amber-800 whitespace-nowrap"><span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200">07.45 - 11.00 WIB</span></td>
+                                <td class="px-4 py-3 font-extrabold text-gray-900">🔥 Kegiatan Inti Perlombaan (Tarik Tambang & Voli Sarung)</td>
+                                <td class="px-4 py-3"><span class="font-bold text-rsblue bg-blue-100 px-2.5 py-1 rounded-lg inline-block">MC & Koordinator Arena</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">11.00 - 11.20 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Pembagian Hadiah Hiburan & Doorprize Sponsor</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">MC & Nisa</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">11.20 - 12.00 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Penutup, Foto Bersama & Clearance Area Parkir</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">MC & Panitia</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
+            <!-- RUNDOWN TAB 2: MINI SOCCER (12 & 14 AGUSTUS 2026) -->
+            <div id="rundown-minisoccer" class="rundown-content bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
+                    <div>
+                        <span class="px-3 py-1 bg-blue-100 text-rsblue text-xs font-bold rounded-full uppercase tracking-wider">Rundown Resmi Hari Ke-2 & 3</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-rsblue mt-1 flex items-center gap-2">
+                            Turnamen Mini Soccer / Futsal
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-0.5">12 & 14 Agustus 2026 • Safin Football Academy</p>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-rsblue px-3.5 py-2 rounded-xl border border-gray-200 shrink-0 shadow-sm hover:bg-blue-50 transition-colors">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-rsblue"></i> Peta Safin Academy
+                    </a>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+                    <table class="w-full text-left text-xs sm:text-sm text-gray-700">
+                        <thead class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+                            <tr>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-44"><i data-lucide="timer" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Waktu</th>
+                                <th scope="col" class="px-4 py-3.5"><i data-lucide="activity" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Agenda / Pertandingan</th>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-48"><i data-lucide="user-check" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> PJ Lapangan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.30 - 08.00 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Briefing Wasit, Pemanggilan Skuad & Checking Shinguard</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">dr. Teguh & Pak Ali</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">08.00 - 09.30 WIB</span></td>
+                                <td class="px-4 py-3 font-bold text-gray-900">Match 1: Tim A vs Tim B (Babak Penyisihan)</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Wasit Resmi & PJ</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">09.30 - 11.00 WIB</span></td>
+                                <td class="px-4 py-3 font-bold text-gray-900">Match 2: Tim C vs Tim D (Babak Penyisihan)</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Wasit Resmi & PJ</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-amber-50/50">
+                                <td class="px-4 py-3 font-extrabold text-amber-800 whitespace-nowrap"><span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200">14.00 - 16.00 WIB</span></td>
+                                <td class="px-4 py-3 font-extrabold text-gray-900">🏆 Babak Final & Perebutan Juara 3 (14 Agustus)</td>
+                                <td class="px-4 py-3"><span class="font-bold text-rsblue bg-blue-100 px-2.5 py-1 rounded-lg inline-block">Panitia & BPH</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RUNDOWN TAB 3: BLIND MAKE UP (14 AGUSTUS 2026) -->
+            <div id="rundown-blindmakeup" class="rundown-content bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
+                    <div>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full uppercase tracking-wider">Rundown Resmi Hari Ke-3</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-rsblue mt-1 flex items-center gap-2">
+                            Lomba Blind Make Up
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-0.5">Jumat, 14 Agustus 2026 • Aula Masjid Darul Afiyah</p>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-rsblue px-3.5 py-2 rounded-xl border border-gray-200 shrink-0 shadow-sm hover:bg-blue-50 transition-colors">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-rsyellow"></i> Aula Masjid
+                    </a>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+                    <table class="w-full text-left text-xs sm:text-sm text-gray-700">
+                        <thead class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+                            <tr>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-44"><i data-lucide="timer" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Waktu</th>
+                                <th scope="col" class="px-4 py-3.5"><i data-lucide="activity" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Agenda / Kegiatan</th>
+                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-48"><i data-lucide="user-check" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Penanggung Jawab</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">13.00 - 13.30 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Registrasi Peserta & Pengecekan Penutup Mata / Alat Make Up</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Bu Anisah & Tim</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors bg-purple-50/30">
+                                <td class="px-4 py-3 font-extrabold text-purple-700 whitespace-nowrap"><span class="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-md border border-purple-200">13.30 - 14.00 WIB</span></td>
+                                <td class="px-4 py-3 font-bold text-gray-900">✨ Sesi Utama Lomba Blind Make Up (Durasi 30 Menit)</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Dewan Juri & Bu Anisah</span></td>
+                            </tr>
+                            <tr class="hover:bg-blue-50/50 transition-colors">
+                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">14.00 - 14.30 WIB</span></td>
+                                <td class="px-4 py-3 font-semibold text-gray-900">Penilaian Dewan Juri, Fashion Show Hasil Make Up & Pengumuman Juara</td>
+                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Dewan Juri & MC</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Pencarian & Informasi Tim</span>
+                <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
+                    <i data-lucide="users" class="w-8 h-8 text-primary"></i> Pengelompokan Tim Beregu & Skuad
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">Gunakan kolom pencarian instan di bawah ini untuk mencari nama Anda, divisi, atau unit kerja.</p>
+            </div>
+
+            <!-- Global Search Box -->
             <div class="mb-10 max-w-2xl mx-auto">
-                <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-200 shadow-sm text-center">
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200 shadow-md text-center">
                     <label for="global-search-input" class="block font-bold text-rsblue mb-2 text-sm flex items-center justify-center gap-2">
-                        <i data-lucide="search" class="w-4 h-4"></i> Cari Nama Pemain / Unit Kerja / Tim
+                        <i data-lucide="search" class="w-4 h-4 text-primary"></i> Cari Nama Pemain / Unit Kerja / Tim
                     </label>
                     <div class="relative">
                         <input type="text" id="global-search-input" placeholder="Ketik nama Anda / unit (misal: Fadhil, IGD, atau Lantai 6)..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rsblue text-sm shadow-inner">
                         <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-3 top-3.5"></i>
                     </div>
-                    <p id="search-results-count" class="text-xs text-gray-500 mt-2 hidden"></p>
+                    <p id="search-results-count" class="text-xs text-rsblue font-semibold mt-2 hidden.bg-yellow-100 p-1 rounded"></p>
                 </div>
             </div>
 
-            <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+            <!-- Poster Jadwal Official Preview -->
+            <div class="mb-12 max-w-4xl mx-auto bg-white p-4 rounded-2xl border border-gray-200 shadow-sm text-center">
+                <h3 class="font-bold text-gray-800 mb-3 flex items-center justify-center gap-2 text-sm sm:text-base"><i data-lucide="image" class="w-5 h-5 text-rsblue"></i> Poster Jadwal Resmi & Penanggung Jawab</h3>
+                <div class="overflow-hidden rounded-xl border border-gray-200 shadow bg-white cursor-pointer group max-w-2xl mx-auto" onclick="openImageModal('Pos 2.png', 'Jadwal & Info Resmi Semarak 81')">
+                    <img src="Pos 2.png" alt="Pos 2 Jadwal" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/1e3a8a/ffffff?text=Poster+Jadwal+Resmi';">
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Klik gambar untuk memperbesar poster jadwal & kontak QR Code.</p>
+            </div>
+
+            <!-- Pengelompokan Tim Beregu -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
                 <div class="text-center mb-8">
                     <h3 class="text-2xl font-bold text-rsblue">Pengelompokan Tim Beregu (11 Tim)</h3>
                     <p class="text-gray-500 text-sm mt-1 flex items-center justify-center gap-2"><i data-lucide="users" class="w-4 h-4 text-primary"></i> Berlaku untuk Tarik Tambang & Voli Sarung</p>
@@ -395,8 +542,8 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Kategori Putra -->
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-                        <div class="flex items-center justify-between p-4 bg-gray-50 border-b border-gray-100">
+                    <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                        <div class="flex items-center justify-between p-4 bg-gray-100 border-b border-gray-200">
                             <h4 class="font-bold text-white bg-rsblue py-1.5 px-4 rounded-lg inline-flex items-center gap-2 text-sm shadow">
                                 <i data-lucide="user" class="w-4 h-4"></i> Kategori Putra (11 Tim)
                             </h4>
@@ -405,7 +552,7 @@
                                 <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                             </button>
                         </div>
-                        <div id="group-putra" class="p-4 space-y-2 text-xs md:text-sm text-gray-700" style="display: none;">
+                        <div id="group-putra" class="p-4 space-y-2 text-xs md:text-sm text-gray-700 bg-white" style="display: none;">
                             <ul class="space-y-2">
                                 <li class="flex justify-between py-1.5 border-b border-gray-100"><span class="font-semibold text-rsblue">Tim Putra 1:</span> <span>Lantai 6</span></li>
                                 <li class="flex justify-between py-1.5 border-b border-gray-100"><span class="font-semibold text-rsblue">Tim Putra 2:</span> <span>Ranap 5, ICU, Ranap 2</span></li>
@@ -423,8 +570,8 @@
                     </div>
 
                     <!-- Kategori Putri -->
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-                        <div class="flex items-center justify-between p-4 bg-gray-50 border-b border-gray-100">
+                    <div class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                        <div class="flex items-center justify-between p-4 bg-gray-100 border-b border-gray-200">
                             <h4 class="font-bold text-white bg-primary py-1.5 px-4 rounded-lg inline-flex items-center gap-2 text-sm shadow">
                                 <i data-lucide="user-check" class="w-4 h-4"></i> Kategori Putri (11 Tim)
                             </h4>
@@ -433,7 +580,7 @@
                                 <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                             </button>
                         </div>
-                        <div id="group-putri" class="p-4 space-y-2 text-xs md:text-sm text-gray-700" style="display: none;">
+                        <div id="group-putri" class="p-4 space-y-2 text-xs md:text-sm text-gray-700 bg-white" style="display: none;">
                             <ul class="space-y-2">
                                 <li class="flex justify-between py-1.5 border-b border-gray-100"><span class="font-semibold text-primary">Tim Putri 1:</span> <span>Lantai 6</span></li>
                                 <li class="flex justify-between py-1.5 border-b border-gray-100"><span class="font-semibold text-primary">Tim Putri 2:</span> <span>Ranap 5, ICU, Ranap 2</span></li>
@@ -460,7 +607,7 @@
         </div>
     </section>
 
-    <section id="squad-futsal" class="py-16 bg-gray-50 border-t border-gray-200">
+    <section id="squad-futsal" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Turnamen Mini Soccer</span>
@@ -472,7 +619,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- TIM A -->
-                <div class="bg-white rounded-2xl shadow-md border-t-8 border-rsblue overflow-hidden flex flex-col justify-between">
+                <div class="bg-gray-50 rounded-2xl shadow-md border-t-8 border-rsblue overflow-hidden flex flex-col justify-between">
                     <div class="bg-blue-50 p-4 border-b border-blue-100 flex justify-between items-center">
                         <div>
                             <span class="px-2.5 py-0.5 bg-rsblue text-white text-[10px] font-bold rounded-full">TIM A</span>
@@ -483,7 +630,7 @@
                             <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                         </button>
                     </div>
-                    <div id="squad-a" class="p-4 space-y-2.5 flex-grow transition-all" style="display: none;">
+                    <div id="squad-a" class="p-4 space-y-2.5 flex-grow transition-all bg-white" style="display: none;">
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Kiper</span><span class="font-bold text-gray-900">Muhamad Ainun Najib</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Ayi Fachrudin</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Muh Choirul Umam</span></div>
@@ -497,7 +644,7 @@
                 </div>
 
                 <!-- TIM B -->
-                <div class="bg-white rounded-2xl shadow-md border-t-8 border-primary overflow-hidden flex flex-col justify-between">
+                <div class="bg-gray-50 rounded-2xl shadow-md border-t-8 border-primary overflow-hidden flex flex-col justify-between">
                     <div class="bg-red-50 p-4 border-b border-red-100 flex justify-between items-center">
                         <div>
                             <span class="px-2.5 py-0.5 bg-primary text-white text-[10px] font-bold rounded-full">TIM B</span>
@@ -508,7 +655,7 @@
                             <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                         </button>
                     </div>
-                    <div id="squad-b" class="p-4 space-y-2.5 flex-grow transition-all" style="display: none;">
+                    <div id="squad-b" class="p-4 space-y-2.5 flex-grow transition-all bg-white" style="display: none;">
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Kiper</span><span class="font-bold text-gray-900">Muhammad Arief Septiawan</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Very</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Muhammad Khoirul Annam</span></div>
@@ -522,7 +669,7 @@
                 </div>
 
                 <!-- TIM C -->
-                <div class="bg-white rounded-2xl shadow-md border-t-8 border-rsyellow overflow-hidden flex flex-col justify-between">
+                <div class="bg-gray-50 rounded-2xl shadow-md border-t-8 border-rsyellow overflow-hidden flex flex-col justify-between">
                     <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-center">
                         <div>
                             <span class="px-2.5 py-0.5 bg-yellow-600 text-white text-[10px] font-bold rounded-full">TIM C</span>
@@ -533,7 +680,7 @@
                             <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                         </button>
                     </div>
-                    <div id="squad-c" class="p-4 space-y-2.5 flex-grow transition-all" style="display: none;">
+                    <div id="squad-c" class="p-4 space-y-2.5 flex-grow transition-all bg-white" style="display: none;">
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Kiper</span><span class="font-bold text-gray-900">Anit</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Ali Rif'an</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Muhammad Heri Susanto</span></div>
@@ -547,7 +694,7 @@
                 </div>
 
                 <!-- TIM D -->
-                <div class="bg-white rounded-2xl shadow-md border-t-8 border-purple-600 overflow-hidden flex flex-col justify-between">
+                <div class="bg-gray-50 rounded-2xl shadow-md border-t-8 border-purple-600 overflow-hidden flex flex-col justify-between">
                     <div class="bg-purple-50 p-4 border-b border-purple-100 flex justify-between items-center">
                         <div>
                             <span class="px-2.5 py-0.5 bg-purple-600 text-white text-[10px] font-bold rounded-full">TIM D</span>
@@ -558,7 +705,7 @@
                             <i data-lucide="chevron-up" class="w-4 h-4 transition-transform duration-300 icon-toggle" style="transform: rotate(180deg);"></i>
                         </button>
                     </div>
-                    <div id="squad-d" class="p-4 space-y-2.5 flex-grow transition-all" style="display: none;">
+                    <div id="squad-d" class="p-4 space-y-2.5 flex-grow transition-all bg-white" style="display: none;">
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Kiper</span><span class="font-bold text-gray-900">Sudalkan</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Dawam</span></div>
                         <div class="flex justify-between items-center text-xs pb-2 border-b border-gray-100"><span class="font-semibold text-gray-500">Belakang</span><span class="font-bold text-gray-900">Dodik Ramadhan</span></div>
@@ -574,7 +721,7 @@
         </div>
     </section>
 
-    <section id="tatatertib" class="py-16 bg-white border-t border-gray-200">
+    <section id="tatatertib" class="py-16 bg-gray-50 border-t border-gray-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Regulasi</span>
@@ -584,28 +731,28 @@
                 <p class="text-gray-600">Seluruh peserta wajib membaca dan mematuhi tata tertib demi kelancaran acara.</p>
             </div>
             
-            <div class="bg-gray-50 rounded-3xl p-6 md:p-10 border border-gray-200 shadow-sm space-y-4">
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+            <div class="bg-white rounded-3xl p-6 md:p-10 border border-gray-200 shadow-sm space-y-4">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="check" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Mengikuti seluruh rangkaian kegiatan perlombaan dengan tertib dan penuh tanggung jawab.</p>
                 </div>
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="clock" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Hadir di lokasi perlombaan minimal <strong class="text-rsblue">15 menit</strong> sebelum pertandingan dimulai.</p>
                 </div>
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="shirt" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Menggunakan pakaian / atribut olahraga yang sesuai dengan ketentuan masing-masing cabang lomba.</p>
                 </div>
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="trash-2" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Menjaga kebersihan area perlombaan dan fasilitas rumah sakit dengan tidak membuang sampah sembarangan.</p>
                 </div>
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Menjunjung tinggi sportivitas, kebersamaan, dan rasa kekeluargaan antar unit.</p>
                 </div>
-                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-white transition-colors">
+                <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="mt-1 bg-blue-100 p-2 rounded-full text-rsblue shrink-0"><i data-lucide="users" class="w-5 h-5"></i></div>
                     <p class="text-gray-700 text-base md:text-lg">Menghormati panitia, juri, wasit, ofisial, dan peserta kontingen lainnya.</p>
                 </div>
@@ -621,7 +768,7 @@
         </div>
     </section>
 
-    <section id="lomba" class="py-16 bg-gray-50 border-t border-gray-200">
+    <section id="lomba" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Kompetisi</span>
@@ -651,22 +798,22 @@
             <div id="minisoccer" class="tab-content active">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200">
                             <h3 class="text-2xl font-bold text-rsblue mb-4 flex items-center gap-2"><i data-lucide="goal" class="text-primary"></i> Peraturan Turnamen Mini Soccer</h3>
                             <div class="space-y-4 text-sm text-gray-700">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-rsblue"></i> Peserta</h4>
                                     <p>Pegawai / PKL aktif RSU Fastabiq Sehat PKU Muhammadiyah. Setiap peserta hanya boleh terdaftar di 1 tim.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-rsblue"></i> Durasi Pertandingan</h4>
                                     <p>Penyisihan: 3 x 15 menit | Final: 2 x 30 menit | Istirahat babak: 5-10 menit.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-rsblue"></i> Sistem Poin & Penentuan Juara</h4>
                                     <p>Menang = 3 poin, Seri = 1 poin, Kalah = 0 poin. Peringkat ditentukan berdasarkan Poin, Selisih Gol, dan Jumlah Gol.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="shirt" class="w-4 h-4 text-rsblue"></i> Perlengkapan & Aturan</h4>
                                     <p>Wajib memakai sepatu futsal/mini soccer, pelindung tulang kering (shinguard), dan kaos kaki panjang. Sliding tackle berbahaya dilarang.</p>
                                 </div>
@@ -674,7 +821,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="bg-white rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
                             <h4 class="font-bold text-gray-800 mb-3 text-sm">Poster Resmi Mini Soccer</h4>
                             <div class="overflow-hidden rounded-2xl border border-gray-300 cursor-pointer group" onclick="openImageModal('Lomba MiniSoccer.png', 'Peraturan Lomba Mini Soccer')">
                                 <img src="Lomba MiniSoccer.png" alt="Mini Soccer" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/1e3a8a/ffffff?text=Poster+Mini+Soccer';">
@@ -691,18 +838,18 @@
             <div id="tariktambang" class="tab-content">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200">
                             <h3 class="text-2xl font-bold text-rsblue mb-4 flex items-center gap-2"><i data-lucide="grab" class="text-primary"></i> Peraturan Lomba Tarik Tambang</h3>
                             <div class="space-y-4 text-sm text-gray-700">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-primary"></i> Format Tim</h4>
                                     <p>Setiap tim terdiri dari 4 orang (Kategori Putra dan Kategori Putri terpisah).</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="trophy" class="w-4 h-4 text-primary"></i> Sistem Kemenangan</h4>
                                     <p>Tim yang lebih dulu meraih 2 kemenangan (Best of Three) menjadi pemenang dan lolos ke babak berikutnya.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="shield-alert" class="w-4 h-4 text-primary"></i> Larangan Utama</h4>
                                     <p>Dilarang melilitkan tali pada tangan, pergelangan, lengan, pinggang, atau leher. Sengaja duduk atau rebah untuk menahan tarikan berakibat diskualifikasi.</p>
                                 </div>
@@ -710,7 +857,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="bg-white rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
                             <h4 class="font-bold text-gray-800 mb-3 text-sm">Poster Resmi Tarik Tambang</h4>
                             <div class="overflow-hidden rounded-2xl border border-gray-300 cursor-pointer group" onclick="openImageModal('Lomba Tarik Tambang.png', 'Peraturan Lomba Tarik Tambang')">
                                 <img src="Lomba Tarik Tambang.png" alt="Tarik Tambang" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/dc2626/ffffff?text=Poster+Tarik+Tambang';">
@@ -725,14 +872,14 @@
             <div id="volisarung" class="tab-content">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200">
                             <h3 class="text-2xl font-bold text-rsblue mb-4 flex items-center gap-2"><i data-lucide="volleyball" class="text-primary"></i> Peraturan Lomba Voli Sarung</h3>
                             <div class="space-y-4 text-sm text-gray-700">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-rsblue"></i> Pemain & Peralatan</h4>
                                     <p>Setiap tim terdiri dari 4 pemain (2 putra, 2 putri). Menggunakan sarung yang dipegang di setiap sudutnya untuk melempar dan menangkap bola voli.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="flag" class="w-4 h-4 text-rsblue"></i> Sistem Permainan</h4>
                                     <p>Sistem gugur. Satu kali game 11 poin tanpa deuce. Untuk rubber set adalah 6 poin. Servis dilakukan dengan melempar bola ke daerah lawan dari belakang garis 5 meter.</p>
                                 </div>
@@ -740,7 +887,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="bg-white rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
                             <h4 class="font-bold text-gray-800 mb-3 text-sm">Poster Resmi Voli Sarung</h4>
                             <div class="overflow-hidden rounded-2xl border border-gray-300 cursor-pointer group" onclick="openImageModal('Lomba Voly Sarung.png', 'Peraturan Lomba Voli Sarung')">
                                 <img src="Lomba Voly Sarung.png" alt="Voli Sarung" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/eab308/ffffff?text=Poster+Voli+Sarung';">
@@ -755,14 +902,14 @@
             <div id="blindmakeup" class="tab-content">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                     <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200">
                             <h3 class="text-2xl font-bold text-rsblue mb-4 flex items-center gap-2"><i data-lucide="sparkles" class="text-primary"></i> Peraturan Lomba Blind Make Up</h3>
                             <div class="space-y-4 text-sm text-gray-700">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-primary"></i> Format & Durasi</h4>
                                     <p>Setiap tim terdiri dari 2 orang (1 perias dan 1 model). Durasi lomba adalah 30 menit. Mata perias wajib ditutup kain/penutup mata khusus.</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                <div class="bg-white p-4 rounded-xl border border-gray-100">
                                     <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-primary"></i> Kriteria Penilaian</h4>
                                     <p>1. Kerapian & Hasil Akhir (40%) | 2. Kreativitas & Estetika (30%) | 3. Kekompakan & Manajemen Waktu (20%) | 4. Kebersihan Area (10%).</p>
                                 </div>
@@ -770,7 +917,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="bg-white rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
+                        <div class="bg-gray-50 rounded-3xl p-4 border border-gray-200 text-center shadow-sm">
                             <h4 class="font-bold text-gray-800 mb-3 text-sm">Poster Resmi Blind Make Up</h4>
                             <div class="overflow-hidden rounded-2xl border border-gray-300 cursor-pointer group" onclick="openImageModal('Lomba Blind MakeUp.png', 'Peraturan Lomba Blind Make Up')">
                                 <img src="Lomba Blind MakeUp.png" alt="Blind Make Up" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x800/9333ea/ffffff?text=Poster+Blind+MakeUp';">
@@ -783,6 +930,59 @@
         </div>
     </section>
 
+    <section id="sponsorship" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="text-xs font-bold text-rsyellow uppercase tracking-widest bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">Mitra & Pendukung</span>
+            <h2 class="text-3xl font-extrabold text-white mt-3 mb-2 flex items-center justify-center gap-2">
+                <i data-lucide="handshake" class="w-8 h-8 text-rsyellow"></i> Sponsorship & Partner Resmi
+            </h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm mb-12">
+                Apresiasi setinggi-tingginya kepada instansi, perusahaan, dan donatur yang telah berpartisipasi dan mensponsori Semarak Kemerdekaan 81 RSU Fastabiq Sehat.
+            </p>
+
+            <!-- Grid Logo Sponsor (Uniform Height) -->
+            <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 mb-10">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">Supported By</p>
+                <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+                    <!-- Logo 1: MuTif -->
+                    <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="Logo Mutif.png" alt="Sponsor MuTif" class="h-10 sm:h-14 w-auto object-contain">
+                    </div>
+                    <!-- Logo 2: Sport Clinic -->
+                    <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="Logo Sport Clinic.png" alt="Sponsor Sport Clinic" class="h-10 sm:h-14 w-auto object-contain">
+                    </div>
+                    <!-- Logo 3: Alfazo -->
+                    <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="Logo Alfaz.png" alt="Sponsor Alfazo" class="h-10 sm:h-14 w-auto object-contain">
+                    </div>
+                    <!-- Logo 4: Digital Printing -->
+                    <!-- <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="https://placehold.co/200x80/ffffff/0284c7?text=Digital+Printing" alt="Sponsor Digital Printing" class="h-10 sm:h-14 w-auto object-contain">
+                    </div> -->
+                    <!-- Logo 5: Lazismu / Persyarikatan -->
+                    <!-- <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="https://placehold.co/200x80/ffffff/16a34a?text=Lazismu" alt="Sponsor Lazismu" class="h-10 sm:h-14 w-auto object-contain">
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Call to Action Banner Donatur Hemat / Berkah -->
+            <div class="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 rounded-3xl p-6 sm:p-8 text-amber-950 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-amber-300">
+                <div class="text-center md:text-left">
+                    <span class="inline-block px-3 py-1 bg-amber-950 text-rsyellow text-xs font-bold rounded-full mb-2">Peluang Pahala Jariyah 🤲</span>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-amber-950">Ingin Berbagi Doorprize / Infaq Lomba?</h3>
+                    <p class="text-xs sm:text-sm text-amber-900 mt-1 max-w-xl font-medium">
+                        Mari meraih keberkahan di jalan Allah SWT dengan menyisihkan sebagian rizki untuk hadiah, doorprize, atau konsumsi peserta Semarak Kemerdekaan 81.
+                    </p>
+                </div>
+                <button onclick="openDonaturModal()" class="bg-amber-950 hover:bg-black text-rsyellow font-extrabold px-6 py-3.5 rounded-2xl text-xs sm:text-sm shadow-xl transition-all shrink-0 hover:scale-105 active:scale-95 flex items-center gap-2 border border-amber-400">
+                    <i data-lucide="gift" class="w-5 h-5 text-rsyellow"></i> Jadi Donatur / Sponsor
+                </button>
+            </div>
+        </div>
+    </section>
+
     <section id="pendaftaran" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
@@ -790,7 +990,7 @@
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
                     <i data-lucide="clipboard-signature" class="w-8 h-8 text-primary"></i> Form Pendaftaran Cabang Lomba
                 </h2>
-                <p class="text-gray-600">Daftarkan tim atau unit Anda untuk berpartisipasi dalam Semarak Kemerdekaan 81.</p>
+                <p class="text-gray-600 text-sm">Daftarkan tim atau unit Anda untuk berpartisipasi dalam Semarak Kemerdekaan 81.</p>
                 <div class="mt-3">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-rsblue bg-blue-50 px-4 py-2 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors">
                         <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Form di Tab Baru
@@ -812,7 +1012,7 @@
             <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
                 <i data-lucide="images" class="w-8 h-8 text-primary"></i> Galeri & Poster Resmi
             </h2>
-            <p class="text-gray-600 mb-10">Kumpulan poster dan arsip dokumentasi kegiatan Semarak Kemerdekaan 81.</p>
+            <p class="text-gray-600 text-sm mb-10">Kumpulan poster dan arsip dokumentasi kegiatan Semarak Kemerdekaan 81.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm cursor-pointer group" onclick="openImageModal('Pos 2.png', 'Poster Jadwal & Info')">
@@ -881,7 +1081,7 @@
 
                 <div class="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
                     <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-blue-50 transition-colors">
-                        <span class="font-bold text-gray-900 flex items-center gap-3"><i data-lucide="message-circle-question" class="w-5 h-5 text-rsblue"></i> Siapa yang bisa dihubungi untuk pertanyaan teknis?</span>
+                        <span class="font-bold text-gray-900 flex items-center gap-3"><i data-lucide="message-circle-question" class="w-5 h-5 text-rsblue"></i> Siapa yang bisa dihubungi untuk pertanyaan teknis atau Infaq/Sponsor?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content hidden px-14 pb-4 pt-1 text-gray-600 text-sm border-t border-gray-100 bg-white">
@@ -906,7 +1106,7 @@
                 
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-white flex items-center gap-2"><i data-lucide="phone-call" class="w-5 h-5 text-rsyellow"></i> Informasi & Ketua Panitia</h4>
-                    <p class="text-gray-400 text-sm mb-4">Butuh bantuan seputar perlombaan? Hubungi langsung:</p>
+                    <p class="text-gray-400 text-sm mb-4">Butuh bantuan seputar perlombaan atau sponsorship? Hubungi langsung:</p>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3 text-gray-300 text-sm">
                             <div class="bg-green-900/80 p-2 rounded-full text-green-400"><i data-lucide="message-square" class="w-4 h-4"></i></div>
@@ -984,14 +1184,13 @@
                     <div class="bg-white p-3.5 rounded-2xl rounded-tl-none border border-gray-200 shadow-sm max-w-[85%] text-gray-800 leading-relaxed">
                         Yo! Halo gaes 👋 Mimin **FastBot** siap bantu kamu seputar **Semarak 81 RSU Fastabiq**.
                         <br><br>
-                        Mau tanya apa nih? Pendaftaran, jadwal, lokasi, kostum, atau mau komplain hasil pertandingan? Bebas tanya aja, santuy! 😎
+                        Mau tanya apa nih? Pendaftaran, rundown, jadwal, lokasi, sponsor/infaq, atau mau komplain hasil pertandingan? Bebas tanya aja, santuy! 😎
                         
                         <!-- Open Suggestion Pills -->
                         <div class="mt-3 pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
-                            <button onclick="sendQuickMessage('📅 Jadwal Lengkap')" class="px-2.5 py-1 bg-blue-50 hover:bg-rsblue hover:text-white text-rsblue rounded-lg font-semibold text-[11px] transition-colors">📅 Jadwal</button>
-                            <button onclick="sendQuickMessage('📝 Cara Pendaftaran')" class="px-2.5 py-1 bg-blue-50 hover:bg-rsblue hover:text-white text-rsblue rounded-lg font-semibold text-[11px] transition-colors">📝 Pendaftaran</button>
-                            <button onclick="sendQuickMessage('🚨 Protes / Komplain Hasil')" class="px-2.5 py-1 bg-red-50 hover:bg-primary hover:text-white text-primary rounded-lg font-semibold text-[11px] transition-colors">🚨 Komplain Hasil</button>
-                            <button onclick="sendQuickMessage('🎁 Hadiah & Konsumsi')" class="px-2.5 py-1 bg-yellow-50 hover:bg-yellow-500 hover:text-white text-yellow-700 rounded-lg font-semibold text-[11px] transition-colors">🎁 Hadiah & Makan</button>
+                            <button onclick="sendQuickMessage('📅 Rundown Detil')" class="px-2.5 py-1 bg-blue-50 hover:bg-rsblue hover:text-white text-rsblue rounded-lg font-semibold text-[11px] transition-colors">📅 Rundown</button>
+                            <button onclick="sendQuickMessage('❤️ Infaq / Donatur')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-500 hover:text-white text-amber-800 rounded-lg font-semibold text-[11px] transition-colors">❤️ Donasi/Infaq</button>
+                            <button onclick="sendQuickMessage('🚨 Protes / Komplain Hasil')" class="px-2.5 py-1 bg-red-50 hover:bg-primary hover:text-white text-primary rounded-lg font-semibold text-[11px] transition-colors">🚨 Komplain</button>
                         </div>
                     </div>
                 </div>
@@ -999,11 +1198,10 @@
 
             <!-- Quick Suggestions Bar -->
             <div class="p-2 bg-gray-100 border-t border-gray-200 flex gap-1.5 overflow-x-auto whitespace-nowrap text-[11px] no-scrollbar">
-                <button onclick="sendQuickMessage('📅 Jadwal Lomba')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">📅 Jadwal</button>
+                <button onclick="sendQuickMessage('📅 Rundown Acara')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">📅 Rundown</button>
+                <button onclick="sendQuickMessage('❤️ Donasi / Infaq Lomba')" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-full transition-colors shrink-0 font-bold shadow-sm">❤️ Infaq Lomba</button>
                 <button onclick="sendQuickMessage('📝 Cara Daftar')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">📝 Daftar</button>
                 <button onclick="sendQuickMessage('🚨 Komplain Hasil')" class="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-primary border border-red-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">🚨 Komplain</button>
-                <button onclick="sendQuickMessage('📍 Lokasi & Parkir')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">📍 Lokasi</button>
-                <button onclick="sendQuickMessage('👕 Baju & Kostum')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">👕 Kostum</button>
                 <button onclick="sendQuickMessage('💬 WA Ketua Panitia')" class="px-3 py-1.5 bg-green-50 hover:bg-green-100 text-emerald-700 border border-green-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">💬 WA Panitia</button>
             </div>
 
@@ -1036,8 +1234,50 @@
         </div>
     </div>
 
-    <!-- JavaScript Code -->
+    <div id="donaturModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden border-2 border-amber-300 animate-in fade-in zoom-in duration-300">
+            <!-- Decorative Top Ribbon -->
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-400 rounded-full blur-2xl opacity-40"></div>
+            <button onclick="closeDonaturModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-300 shadow-inner">
+                <i data-lucide="heart-handshake" class="w-9 h-9 animate-bounce"></i>
+            </div>
+
+            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-900 text-xs font-extrabold rounded-full mb-3 uppercase tracking-wider">
+                ✨ Peluang Infaq & Sedekah Lomba
+            </span>
+
+            <h3 class="text-2xl font-extrabold text-gray-900 mb-2">
+                Pintu Keberkahan & Tabungan Pahala 🤲
+            </h3>
+            
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+                Panitia Semarak Kemerdekaan 81 RSU Fastabiq membuka kesempatan emas bagi Bapak/Ibu donatur hemat & kedermawanan yang ingin mencari rida serta pahala di jalan Allah SWT.
+            </p>
+
+            <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 text-left space-y-2 mb-6 text-xs text-amber-950">
+                <p class="font-bold text-amber-900 mb-1 flex items-center gap-1.5"><i data-lucide="gift" class="w-4 h-4 text-amber-600"></i> Bentuk Sumbangan Yang Kami Terima:</p>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i> <span>Doorprize / Hadiah Hiburan Peserta</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i> <span>Uang Infaq / Sponsorship Acara</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i> <span>Produk, Sembako, Voucher, Snack / Konsumsi</span></div>
+            </div>
+
+            <div class="space-y-3">
+                <a href="https://wa.me/62895328588407?text=Assalamu%27alaikum%20Mas%20Rifal,%20saya%20berniat%20menjadi%20donatur/sponsor%20hadiah%20Semarak%20Kemerdekaan%2081" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i> Hubungi Mas Rifal via WA (0895328588407)
+                </a>
+                <button onclick="closeDonaturModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                    Nanti Saja
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Target Date Countdown (11 Agustus 2026)
         const targetDate = new Date('August 11, 2026 08:00:00').getTime();
 
         function updateCountdown() {
@@ -1065,6 +1305,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
+        // Mobile Menu Navigation
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -1078,7 +1319,7 @@
             });
         });
 
-        // Carousel Slider
+        // Carousel Slider Logic for Greetings
         const track = document.getElementById('testimonial-track');
         const prevBtn = document.getElementById('slider-prev');
         const nextBtn = document.getElementById('slider-next');
@@ -1156,6 +1397,23 @@
         createDots();
         updateSliderPosition();
 
+        // Rundown Tab Switcher
+        function openRundownTab(evt, tabId) {
+            const rundowns = document.getElementsByClassName("rundown-content");
+            for (let i = 0; i < rundowns.length; i++) {
+                rundowns[i].classList.remove("active");
+            }
+            const btns = document.getElementsByClassName("rundown-btn");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active", "bg-rsblue", "text-white", "shadow-md");
+                btns[i].classList.add("bg-gray-100", "text-gray-700", "border", "border-gray-200");
+            }
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.remove("bg-gray-100", "text-gray-700", "border", "border-gray-200");
+            evt.currentTarget.classList.add("active", "bg-rsblue", "text-white", "shadow-md");
+        }
+
+        // Collapse / Expand Skuad & Group
         function toggleSquad(squadId, button) {
             const squadEl = document.getElementById(squadId);
             const btnText = button.querySelector('.btn-text');
@@ -1188,7 +1446,7 @@
             }
         }
 
-        // Global Search
+        // Global Search Filter
         const searchInput = document.getElementById('global-search-input');
         const searchCount = document.getElementById('search-results-count');
 
@@ -1207,7 +1465,7 @@
                 if (el) el.style.display = 'block';
             });
 
-            const items = document.querySelectorAll('#squad-futsal li, #squad-futsal .flex-justify-between, #jadwal li');
+            const items = document.querySelectorAll('#squad-futsal .flex, #jadwal li');
             items.forEach(item => {
                 const text = item.textContent.toLowerCase();
                 if (text.includes(query)) {
@@ -1224,6 +1482,7 @@
             searchCount.textContent = `Ditemukan ${foundCount} hasil pencarian untuk "${query}"`;
         });
 
+        // Tab Navigation for Cabang Lomba
         function openTab(evt, tabName) {
             let i, tabcontent, tablinks;
             
@@ -1274,10 +1533,29 @@
             document.getElementById('imageModal').classList.add('hidden');
         }
 
+        // Donatur & Sponsor Modal Logic
+        function openDonaturModal() {
+            document.getElementById('donaturModal').classList.remove('hidden');
+        }
+
+        function closeDonaturModal() {
+            document.getElementById('donaturModal').classList.add('hidden');
+        }
+
         window.addEventListener('click', (e) => {
             const imageModal = document.getElementById('imageModal');
+            const donaturModal = document.getElementById('donaturModal');
             if (e.target === imageModal) closeImageModal();
+            if (e.target === donaturModal) closeDonaturModal();
         });
+
+        // Show donation modal after 6 seconds on first visit
+        setTimeout(() => {
+            if (!sessionStorage.getItem('donaturModalShown')) {
+                openDonaturModal();
+                sessionStorage.setItem('donaturModalShown', 'true');
+            }
+        }, 6000);
 
         // Back To Top
         const backToTopBtn = document.getElementById('back-to-top');
@@ -1293,6 +1571,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
+        // Chatbot Integration
         const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
         const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
         const chatbotWindow = document.getElementById('chatbot-window');
@@ -1335,162 +1614,58 @@
             lucide.createIcons();
         }
 
-        // Smart Intent Matching Engine (Algorithms with Token Scoring & Intent Detection)
+        // Smart Intent Engine with Infaq/Donatur & Rundown Support
         function getBotReply(userMsg) {
             const cleanText = userMsg.toLowerCase().replace(/[^\w\s]/gi, ' ');
-            const words = cleanText.split(/\s+/).filter(w => w.length > 0);
 
-            // Intent Keywords Mapping with Scores
-            const intents = [
-                {
-                    name: 'complaint',
-                    keywords: ['komplain', 'protes', 'curang', 'salah', 'kecewa', 'kurang puas', 'banding', 'sanggah', 'wasit', 'masalah', 'keluhan', 'sogok', 'penilaian', 'salah hitung', 'skor', 'nilai', 'tidak adil', 'ketidakadilan', 'mencurigakan'],
-                    reply: () => `🚨 **Waduh, ada keluhan / protes hasil pertandingan ya boss?**
-                    <br><br>
-                    Tenang, panitia junjung tinggi **sportivitas & transparansi**! Kalo merasa ada kecurangan atau salah skor, ikuti prosedur resmi ini gaes:
-                    <br><br>
-                    1️⃣ Lapor ke **PJ Lapangan** maksimal 15 menit setelah game selesai.
-                    2. Atau ajukan protes tertulis dengan bukti video/foto langsung ke Ketua Panitia (**Mas Rifal**).
-                    <br><br>
-                    <a href="https://wa.me/62895328588407?text=Halo%20Mas%20Rifal,%20saya%20ingin%20mengajukan%20komplain/protes%20hasil%20lomba" target="_blank" class="mt-2 inline-flex items-center gap-1.5 bg-red-600 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-red-700 transition-colors shadow">
-                        <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Chat Mas Rifal Sekarang
-                    </a>
-                    <br><br>
-                    Mau cek topik lainnya? Klik di bawah 👇
-                    <div class="mt-2 flex flex-wrap gap-1">
-                        <button onclick="sendQuickMessage('Siapa PJ Lomba?')" class="px-2 py-0.5 bg-gray-100 hover:bg-gray-200 rounded text-[10px] font-semibold text-rsblue">👤 Siapa PJ Lomba?</button>
-                        <button onclick="sendQuickMessage('Tata Tertib Umum')" class="px-2 py-0.5 bg-gray-100 hover:bg-gray-200 rounded text-[10px] font-semibold text-rsblue">📜 Tata Tertib</button>
-                    </div>`
-                },
-                {
-                    name: 'schedule',
-                    keywords: ['jadwal', 'kapan', 'tanggal', 'jam', 'mulai', 'hari', 'agenda', 'waktu', 'futsal kapan', 'tarik tambang kapan', 'makeup kapan'],
-                    reply: () => `📅 **Jadwal Semarak Kemerdekaan 81:**
-                    <br><br>
-                    • **11 Agustus 2026:** Tarik Tambang & Voli Sarung *(Parkir Selatan)*
-                    • **12 & 14 Agustus 2026:** Mini Soccer *(Safin Football Academy)*
-                    • **14 Agustus 2026:** Blind Make Up *(Aula Masjid)*
-                    <br><br>
-                    💡 *Semua lomba mulai pukul 08:00 WIB.* Datang 15 menit sebelum tanding ya!
-                    <br><br>
-                    <div class="mt-1 flex flex-wrap gap-1">
-                        <button onclick="sendQuickMessage('📍 Dimana Lokasinya?')" class="px-2 py-0.5 bg-gray-100 hover:bg-gray-200 rounded text-[10px] font-semibold text-rsblue">📍 Cek Peta Lokasi</button>
-                        <button onclick="sendQuickMessage('🔍 Cari Nama Saya')" class="px-2 py-0.5 bg-gray-100 hover:bg-gray-200 rounded text-[10px] font-semibold text-rsblue">🔍 Cek Tim Saya</button>
-                    </div>`
-                },
-                {
-                    name: 'registration',
-                    keywords: ['daftar', 'pendaftaran', 'ikut', 'ikutan', 'cara daftar', 'form', 'link', 'google form', 'bayar', 'biaya', 'gratis'],
-                    reply: () => `📝 **Pendaftaran Gampang Banget!**
-                    <br><br>
-                    Pendaftaran **100% GRATIS** untuk seluruh karyawan RSU Fastabiq & siswa PKL!
-                    <br><br>
-                    Kamu bisa isi **Form Pendaftaran** langsung di website ini atau buka tautan di bawah:
-                    <br><br>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-1.5 bg-rsblue text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-blue-900 transition-colors shadow">
-                        <i data-lucide="clipboard-edit" class="w-3.5 h-3.5"></i> Isi Form Pendaftaran
-                    </a>`
-                },
-                {
-                    name: 'location',
-                    keywords: ['lokasi', 'tempat', 'dimana', 'di mana', 'alamat', 'safin', 'parkir', 'aula', 'peta', 'maps', 'lapangan'],
-                    reply: () => `📍 **Lokasi Arena Perlombaan:**
-                    <br><br>
-                    1. **Mini Soccer:** Safin Football Academy
-                    2. **Tarik Tambang & Voli Sarung:** Area Parkir Selatan RSU Fastabiq
-                    3. **Blind Make Up:** Aula Masjid Darul Afiyah
-                    <br><br>
-                    Klik section **Jadwal** di website buat langsung dapat link Google Maps lokasi ya!`
-                },
-                {
-                    name: 'squad_team',
-                    keywords: ['skuad', 'futsal', 'pemain', 'tim a', 'tim b', 'tim c', 'tim d', 'putra', 'putri', 'kelompok', 'group', 'tim', 'nama saya', 'pencarian'],
-                    reply: () => `⚽ **Pengelompokan Tim & Skuad:**
-                    <br><br>
-                    Ada **11 Tim Beregu** (Tarik Tambang & Voli) serta **4 Skuad Futsal** (Tim A, B, C, D).
-                    <br><br>
-                    Biar gak bingung, pake **Kolom Pencarian Cepat** di bagian Jadwal/Skuad website! Tinggal ketik nama kamu atau unit kerja (misal: *Fadhil*, *IGD*, *Lantai 6*).`
-                },
-                {
-                    name: 'contact',
-                    keywords: ['kontak', 'wa', 'whatsapp', 'panitia', 'rifal', 'admin', 'telepon', 'hp', 'nomor', 'hubungi'],
-                    reply: () => `💬 **Kontak Ketua Panitia:**
-                    <br><br>
-                    Hubungi langsung **Mas Rifal Budi Yuliano** (Ketua Panitia Semarak 81) via WhatsApp:
-                    <br><br>
-                    📱 **0895328588407**
-                    <br><br>
-                    <a href="https://wa.me/62895328588407?text=Halo%20Mas%20Rifal,%20saya%20ingin%20bertanya%20seputar%20Semarak%20Kemerdekaan%2081" target="_blank" class="inline-flex items-center gap-1.5 bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-emerald-700 transition-colors shadow">
-                        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chat Mas Rifal di WA
-                    </a>`
-                },
-                {
-                    name: 'prize_food',
-                    keywords: ['hadiah', 'juara', 'piala', 'makan', 'konsumsi', 'snack', 'doorprize', 'menang', 'dapat apa', 'uang', 'bonus'],
-                    reply: () => `🎁 **Hadiah & Konsumsi:**
-                    <br><br>
-                    • Panitia nyediain piala, piagam, dan hadiah menarik buat para pemenang di setiap cabang lomba! 🏆
-                    • Konsumsi & snack disediain panitia di area lokasi perlombaan. (Inysaallah tapi gaes!) 😋`
-                },
-                {
-                    name: 'rules',
-                    keywords: ['baju', 'kostum', 'pakaian', 'sepatu', 'aturan', 'peraturan', 'syarat', 'tata tertib', 'durasi', 'kartu', 'shinguard'],
-                    reply: () => `👕 **Peraturan & Costumes:**
-                    <br><br>
-                    • **Mini Soccer:** Wajib sepatu futsal/soccer + kaos kaki panjang + pelindung tulang kering (shinguard). Dilarang sliding tackle berbahaya!
-                    • **Tarik Tambang:** Pakai baju olahraga & sepatu kets. Dilarang ngelilit tali ke badan/tangan!
-                    • **Voli Sarung:** 1 Tim 4 orang (2 Putra + 2 Putri), pakaikan sarung buat lempar bola!
-                    • **Blind Make Up:** 1 Perias (mata ditutup) + 1 Model. Durasi 30 menit.`
-                },
-                {
-                    name: 'greetings',
-                    keywords: ['halo', 'hai', 'p', 'ping', 'bro', 'sis', 'min', 'mimin', 'pagi', 'siang', 'sore', 'malam', 'siapa kamu', 'fastbot', 'assalamualaikum'],
-                    reply: () => `Halo bro/sis! 👋 Mimin FastBot di sini. Ada yang bisa mimin bantu buat acara Semarak 81 ini?
-                    <br><br>
-                    Pilih topik cepat di bawah biar mimin langsung jelasin:
-                    <div class="mt-2 flex flex-wrap gap-1">
-                        <button onclick="sendQuickMessage('📅 Jadwal Lomba')" class="px-2 py-1 bg-blue-50 text-rsblue font-bold rounded text-[10px]">📅 Jadwal</button>
-                        <button onclick="sendQuickMessage('📝 Cara Daftar')" class="px-2 py-1 bg-blue-50 text-rsblue font-bold rounded text-[10px]">📝 Pendaftaran</button>
-                        <button onclick="sendQuickMessage('🚨 Komplain Hasil')" class="px-2 py-1 bg-red-50 text-primary font-bold rounded text-[10px]">🚨 Komplain</button>
-                    </div>`
-                },
-                {
-                    name: 'thanks',
-                    keywords: ['makasih', 'terima kasih', 'thanks', 'ok', 'oke', 'siap', 'mantap', 'gokil', 'keren', 'paham', 'mengerti'],
-                    reply: () => `Sama-sama bro/sis! 🔥 Semangat bertanding dan salam *Fastabiqul Khairat*! Kalo ada bingung lagi, panggil mimin kapan aja ya! 😎`
-                }
-            ];
-
-            // Scoring Algorithm
-            let bestIntent = null;
-            let maxScore = 0;
-
-            intents.forEach(intent => {
-                let score = 0;
-                intent.keywords.forEach(kw => {
-                    if (cleanText.includes(kw)) {
-                        score += kw.length > 4 ? 3 : 2; // give higher score to specific terms
-                    }
-                });
-                if (score > maxScore) {
-                    maxScore = score;
-                    bestIntent = intent;
-                }
-            });
-
-            if (bestIntent && maxScore > 0) {
-                return bestIntent.reply();
+            if (cleanText.includes('rundown') || cleanText.includes('susunan') || cleanText.includes('acara') || cleanText.includes('jam berapa') || cleanText.includes('rundon')) {
+                return `📅 **Rundown Resmi Semarak 81:**
+                <br><br>
+                • **11 Agustus (06.00-12.00 WIB):** Pembukaan, Tarik Tambang & Voli Sarung
+                • **12 & 14 Agustus (07.30-16.00 WIB):** Mini Soccer @ Safin Academy
+                • **14 Agustus (13.00-14.30 WIB):** Blind Make Up @ Aula Masjid
+                <br><br>
+                Cek tabel rundown lengkap di section **#rundown** website ya boss!
+                <br><br>
+                <button onclick="sendQuickMessage('❤️ Mau Infaq / Donasi Lomba')" class="px-2 py-0.5 bg-amber-100 text-amber-900 rounded font-bold text-[10px]">❤️ Tanya Infaq / Sponsor</button>`;
             }
 
-            // Fallback response with helpful dynamic buttons
-            return `Waduh mimin agak kurang nangkep nih maksud pertanyaan kamu 😅
-            <br><br>
-            Biar gak bingung atau mandek, coba klik opsi pertanyaan di bawah ini ya:
+            if (cleanText.includes('infaq') || cleanText.includes('donasi') || cleanText.includes('sponsor') || cleanText.includes('pahala') || cleanText.includes('sumbangan') || cleanText.includes('doorprize')) {
+                return `❤️ **Mencari Pahala & Keberkahan di Jalan Allah!**
+                <br><br>
+                Panitia menerima sumbangan dalam bentuk **Doorprize/Hadiah Hiburan**, **Uang Sponsorship**, maupun **Produk/Sembako/Voucher**.
+                <br><br>
+                <a href="https://wa.me/62895328588407?text=Halo%20Mas%20Rifal,%20saya%20ingin%20menjadi%20donatur/sponsor%20Semarak%2081" target="_blank" class="inline-flex items-center gap-1.5 bg-amber-500 text-amber-950 px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-amber-400 transition-colors shadow">
+                    <i data-lucide="heart-handshake" class="w-3.5 h-3.5"></i> Hubungi Mas Rifal (Ketua Panitia)
+                </a>`;
+            }
+
+            if (cleanText.includes('komplain') || cleanText.includes('protes') || cleanText.includes('curang') || cleanText.includes('salah')) {
+                return `🚨 **Ada keluhan / protes hasil pertandingan?**
+                <br><br>
+                Tenang boss! Lapor maksimal 15 menit setelah game ke PJ Lapangan atau ajukan ke Ketua Panitia (**Mas Rifal**).
+                <br><br>
+                <a href="https://wa.me/62895328588407?text=Halo%20Mas%20Rifal,%20saya%20ingin%20mengajukan%20komplain/protes%20hasil%20lomba" target="_blank" class="inline-flex items-center gap-1.5 bg-red-600 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-red-700 transition-colors shadow">
+                    <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Chat Mas Rifal
+                </a>`;
+            }
+
+            if (cleanText.includes('daftar') || cleanText.includes('form') || cleanText.includes('ikut')) {
+                return `📝 **Pendaftaran 100% GRATIS!**
+                <br><br>
+                Langsung isi form online di website atau klik tombol di bawah ini:
+                <br><br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-1.5 bg-rsblue text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-blue-900 transition-colors shadow">
+                    <i data-lucide="clipboard-edit" class="w-3.5 h-3.5"></i> Isi Form Pendaftaran
+                </a>`;
+            }
+
+            return `Yo! Mimin FastBot siap bantu kamu. Pilih topik cepat di bawah ya:
             <div class="mt-2.5 pt-2 border-t border-gray-200 flex flex-col gap-1.5">
-                <button onclick="sendQuickMessage('📅 Jadwal Lomba')" class="text-left px-2.5 py-1 bg-white border border-gray-200 rounded text-rsblue font-semibold hover:bg-blue-50 transition-colors">📅 Jadwal & Lokasi Pertandingan</button>
-                <button onclick="sendQuickMessage('📝 Cara Daftar')" class="text-left px-2.5 py-1 bg-white border border-gray-200 rounded text-rsblue font-semibold hover:bg-blue-50 transition-colors">📝 Cara Pendaftaran Online</button>
-                <button onclick="sendQuickMessage('🚨 Protes / Komplain Hasil')" class="text-left px-2.5 py-1 bg-white border border-red-200 rounded text-primary font-semibold hover:bg-red-50 transition-colors">🚨 Alur Komplain & Protes Hasil</button>
-                <button onclick="sendQuickMessage('💬 Kontak WA Panitia')" class="text-left px-2.5 py-1 bg-white border border-green-200 rounded text-emerald-700 font-semibold hover:bg-green-50 transition-colors">💬 Chat WA Ketua Panitia</button>
+                <button onclick="sendQuickMessage('📅 Rundown Acara')" class="text-left px-2.5 py-1 bg-white border border-gray-200 rounded text-rsblue font-semibold hover:bg-blue-50 transition-colors">📅 Rundown Lengkap</button>
+                <button onclick="sendQuickMessage('❤️ Infaq / Sponsor Lomba')" class="text-left px-2.5 py-1 bg-white border border-amber-300 rounded text-amber-900 font-semibold hover:bg-amber-50 transition-colors">❤️ Donasi & Infaq Lomba</button>
+                <button onclick="sendQuickMessage('📝 Cara Daftar')" class="text-left px-2.5 py-1 bg-white border border-gray-200 rounded text-rsblue font-semibold hover:bg-blue-50 transition-colors">📝 Pendaftaran Online</button>
+                <button onclick="sendQuickMessage('💬 WA Ketua Panitia')" class="text-left px-2.5 py-1 bg-white border border-green-200 rounded text-emerald-700 font-semibold hover:bg-green-50 transition-colors">💬 Chat WA Ketua Panitia</button>
             </div>`;
         }
 
