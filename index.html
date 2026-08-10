@@ -6,7 +6,7 @@
     <title>Semarak Kemerdekaan 81 - RSU Fastabiq Sehat PKU Muhammadiyah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -29,10 +29,10 @@
         }
     </script>
     <style>
-        .tab-content, .rundown-content {
+        .tab-content, .rundown-content, .pendaftaran-tab-content {
             display: none;
         }
-        .tab-content.active, .rundown-content.active {
+        .tab-content.active, .rundown-content.active, .pendaftaran-tab-content.active {
             display: block;
         }
         .faq-content {
@@ -49,7 +49,6 @@
             display: flex;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        /* Custom pulsing glow for donation CTA */
         @keyframes subtle-glow {
             0%, 100% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
             50% { box-shadow: 0 0 25px rgba(234, 179, 8, 0.8); }
@@ -84,7 +83,7 @@
                         <i data-lucide="heart-handshake" class="w-4 h-4 text-amber-600"></i> Infaq & Sponsor
                     </button>
                     <a href="#pendaftaran" class="text-xs xl:text-sm font-semibold text-white bg-rsblue px-4 py-2 rounded-full shadow hover:bg-rsbluehover hover:shadow-md transition-all flex items-center gap-1.5">
-                        <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Daftar
+                        <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Pendaftaran & Peserta
                     </a>
                 </div>
                 <div class="lg:hidden flex items-center gap-2">
@@ -112,7 +111,7 @@
                     <i data-lucide="chevron-right" class="w-4 h-4"></i>
                 </button>
                 <a href="#pendaftaran" class="block px-3 py-2 text-base font-medium text-white bg-rsblue hover:bg-rsbluehover rounded-md text-center flex justify-center items-center gap-2 shadow">
-                    <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Form Pendaftaran
+                    <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Pendaftaran & Cek Peserta
                 </a>
             </div>
         </div>
@@ -183,7 +182,6 @@
                 <p class="text-gray-600 max-w-2xl mx-auto text-sm">Arahan dan semangat dari jajaran Badan Pembina Harian (BPH), Direksi RSU Fastabiq Sehat PKU Muhammadiyah, serta Panitia Penyelenggara.</p>
             </div>
 
-            <!-- Slider Wrapper -->
             <div class="relative max-w-6xl mx-auto px-2 md:px-12">
                 <div class="overflow-hidden rounded-3xl p-2" id="slider-container">
                     <div class="testimonial-slider flex gap-6" id="testimonial-track">
@@ -252,7 +250,7 @@
                             </div>
                         </div>
 
-                        <!-- Card 5: Direktur Umum & Keuangan -->
+                        <!-- Card 5: Direktur Umum -->
                         <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
                             <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
                             <div>
@@ -323,7 +321,7 @@
                 </button>
             </div>
 
-            <!-- RUNDOWN TAB 1: TARIK TAMBANG & VOLI SARUNG (11 AGUSTUS 2026) -->
+            <!-- RUNDOWN TAB 1: TARIK TAMBANG & VOLI SARUNG -->
             <div id="rundown-hari1" class="rundown-content active bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
                     <div>
@@ -403,7 +401,7 @@
                 </div>
             </div>
 
-            <!-- RUNDOWN TAB 2: MINI SOCCER (12 & 14 AGUSTUS 2026) -->
+            <!-- RUNDOWN TAB 2: MINI SOCCER -->
             <div id="rundown-minisoccer" class="rundown-content bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
                     <div>
@@ -453,7 +451,7 @@
                 </div>
             </div>
 
-            <!-- RUNDOWN TAB 3: BLIND MAKE UP (14 AGUSTUS 2026) -->
+            <!-- RUNDOWN TAB 3: BLIND MAKE UP -->
             <div id="rundown-blindmakeup" class="rundown-content bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-200 shadow-sm">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
                     <div>
@@ -520,7 +518,7 @@
                         <input type="text" id="global-search-input" placeholder="Ketik nama Anda / unit (misal: Fadhil, IGD, atau Lantai 6)..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rsblue text-sm shadow-inner">
                         <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-3 top-3.5"></i>
                     </div>
-                    <p id="search-results-count" class="text-xs text-rsblue font-semibold mt-2 hidden.bg-yellow-100 p-1 rounded"></p>
+                    <p id="search-results-count" class="text-xs text-rsblue font-semibold mt-2 hidden bg-yellow-100 p-1 rounded"></p>
                 </div>
             </div>
 
@@ -607,6 +605,7 @@
         </div>
     </section>
 
+    <!-- Skuad Futsal Section -->
     <section id="squad-futsal" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -614,7 +613,7 @@
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
                     <i data-lucide="users" class="w-8 h-8 text-primary"></i> Daftar Skuad Pemain Futsal / Mini Soccer
                 </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Daftar lengkap pemain beserta posisi (Tim A, Tim B, Tim C, dan Tim D). Klik tombol "Tampilkan" pada masing-masing tim untuk melihat daftar nama pemain.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">Daftar lengkap pemain beserta posisi (Tim A, Tim B, Tim C, dan Tim D). Klik tombol "Tampilkan" pada masing-masing tim untuk melihat daftar nama pemain.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -728,7 +727,7 @@
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
                     <i data-lucide="book-open-check" class="w-8 h-8 text-primary"></i> Tata Tertib Umum Peserta
                 </h2>
-                <p class="text-gray-600">Seluruh peserta wajib membaca dan mematuhi tata tertib demi kelancaran acara.</p>
+                <p class="text-gray-600 text-sm">Seluruh peserta wajib membaca dan mematuhi tata tertib demi kelancaran acara.</p>
             </div>
             
             <div class="bg-white rounded-3xl p-6 md:p-10 border border-gray-200 shadow-sm space-y-4">
@@ -775,7 +774,7 @@
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
                     <i data-lucide="trophy" class="w-8 h-8 text-rsyellow"></i> Cabang Lomba & Peraturan Resmi
                 </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Klik tab di bawah untuk melihat rincian peraturan atau lihat poster resmi masing-masing cabang.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm">Klik tab di bawah untuk melihat rincian peraturan atau lihat poster resmi masing-masing cabang.</p>
             </div>
 
             <!-- Tab Navigation -->
@@ -940,34 +939,22 @@
                 Apresiasi setinggi-tingginya kepada instansi, perusahaan, dan donatur yang telah berpartisipasi dan mensponsori Semarak Kemerdekaan 81 RSU Fastabiq Sehat.
             </p>
 
-            <!-- Grid Logo Sponsor (Uniform Height) -->
             <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 mb-10">
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">Supported By</p>
                 <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-                    <!-- Logo 1: MuTif -->
                     <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="Logo Mutif.png" alt="Sponsor MuTif" class="h-10 sm:h-14 w-auto object-contain">
+                        <img src="Logo Mutif.png" alt="Sponsor MuTif" class="h-10 sm:h-14 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/ec4899?text=MuTif';">
                     </div>
-                    <!-- Logo 2: Sport Clinic -->
                     <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="Logo Sport Clinic.png" alt="Sponsor Sport Clinic" class="h-10 sm:h-14 w-auto object-contain">
+                        <img src="Logo Sport Clinic.png" alt="Sponsor Sport Clinic" class="h-10 sm:h-14 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/ea580c?text=Sport+Clinic';">
                     </div>
-                    <!-- Logo 3: Alfazo -->
                     <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="Logo Alfaz.png" alt="Sponsor Alfazo" class="h-10 sm:h-14 w-auto object-contain">
+                        <img src="Logo Alfaz.png" alt="Sponsor Alfazo" class="h-10 sm:h-14 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/2563eb?text=Alfazo';">
                     </div>
-                    <!-- Logo 4: Digital Printing -->
-                    <!-- <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="https://placehold.co/200x80/ffffff/0284c7?text=Digital+Printing" alt="Sponsor Digital Printing" class="h-10 sm:h-14 w-auto object-contain">
-                    </div> -->
-                    <!-- Logo 5: Lazismu / Persyarikatan -->
-                    <!-- <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-md border border-white/20 hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="https://placehold.co/200x80/ffffff/16a34a?text=Lazismu" alt="Sponsor Lazismu" class="h-10 sm:h-14 w-auto object-contain">
-                    </div> -->
                 </div>
             </div>
 
-            <!-- Call to Action Banner Donatur Hemat / Berkah -->
+            <!-- Call to Action Banner Donatur -->
             <div class="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 rounded-3xl p-6 sm:p-8 text-amber-950 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-amber-300">
                 <div class="text-center md:text-left">
                     <span class="inline-block px-3 py-1 bg-amber-950 text-rsyellow text-xs font-bold rounded-full mb-2">Peluang Pahala Jariyah 🤲</span>
@@ -984,25 +971,110 @@
     </section>
 
     <section id="pendaftaran" class="py-16 bg-white border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Pendaftaran Online</span>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Pendaftaran & Data Peserta</span>
                 <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
-                    <i data-lucide="clipboard-signature" class="w-8 h-8 text-primary"></i> Form Pendaftaran Cabang Lomba
+                    <i data-lucide="clipboard-signature" class="w-8 h-8 text-primary"></i> Pendaftaran & Cek Peserta Lomba
                 </h2>
-                <p class="text-gray-600 text-sm">Daftarkan tim atau unit Anda untuk berpartisipasi dalam Semarak Kemerdekaan 81.</p>
-                <div class="mt-3">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-rsblue bg-blue-50 px-4 py-2 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors">
-                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Form di Tab Baru
-                    </a>
-                </div>
+                <p class="text-gray-600 text-sm">Daftarkan tim unit Anda atau cek daftar peserta yang sudah terdaftar secara LIVE.</p>
+            </div>
+
+            <!-- Sub-Tabs Switcher -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8 border-b border-gray-200 pb-4">
+                <button onclick="switchPendaftaranTab('tab-form', this)" class="pendaftaran-tab-btn active px-6 py-3 rounded-full text-xs sm:text-sm font-bold transition-all bg-rsblue text-white shadow-md flex items-center gap-2">
+                    <i data-lucide="clipboard-edit" class="w-4 h-4"></i> Form Pendaftaran
+                </button>
+                <button onclick="switchPendaftaranTab('tab-peserta', this)" class="pendaftaran-tab-btn px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-gray-700 bg-gray-100 hover:bg-blue-50 hover:text-rsblue transition-all border border-gray-200 flex items-center gap-2">
+                    <i data-lucide="users-check" class="w-4 h-4 text-emerald-600"></i> Cek Peserta Terdaftar 
+                    <span id="peserta-count-badge" class="bg-emerald-100 text-emerald-800 text-[10px] px-2.5 py-0.5 rounded-full font-black border border-emerald-300">0 Tim / Pendaftar</span>
+                </button>
             </div>
             
-            <div class="bg-gray-50 rounded-3xl p-4 md:p-8 border border-gray-200 shadow-xl">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform?embedded=true" class="w-full border-0 rounded-xl" style="min-height: 1100px;" loading="lazy">
-                    Memuat Form Pendaftaran…
-                </iframe>
+            <!-- TAB 1: FORM PENDAFTARAN -->
+            <div id="tab-form" class="pendaftaran-tab-content active">
+                <div class="text-center mb-4">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-rsblue bg-blue-50 px-4 py-2 rounded-full border border-blue-200 hover:bg-blue-100 transition-colors shadow-sm">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka Form di Tab Baru (Untuk Pengguna HP)
+                    </a>
+                </div>
+                <div class="bg-gray-50 rounded-3xl p-3 md:p-6 border border-gray-200 shadow-xl">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform?embedded=true" class="w-full border-0 rounded-xl" style="min-height: 1100px;" loading="lazy">
+                        Memuat Form Pendaftaran…
+                    </iframe>
+                </div>
             </div>
+
+            <!-- TAB 2: CEK PESERTA TERDAFTAR (EASY EDIT IN CODE + GOOGLE SHEETS) -->
+            <div id="tab-peserta" class="pendaftaran-tab-content space-y-6">
+                <div class="bg-gray-50 rounded-3xl p-6 border border-gray-200 shadow-lg space-y-5">
+                    
+                    <!-- Top Info & Live Status -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200">
+                        <div>
+                            <h3 class="font-extrabold text-lg text-rsblue flex items-center gap-2">
+                                <i data-lucide="database" class="w-5 h-5 text-emerald-600"></i> Daftar Peserta Lomba Terverifikasi
+                            </h3>
+                            <p class="text-xs text-gray-500 mt-0.5">Data terhubung dengan Google Sheets atau dapat diperbarui secara manual dari kode.</p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-ping"></span> Live Table Active
+                            </span>
+                            <button onclick="fetchParticipantsFromSheet()" class="p-2 bg-white hover:bg-gray-100 text-rsblue rounded-xl border border-gray-200 shadow-sm transition-all text-xs font-bold flex items-center gap-1" title="Refresh Data">
+                                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="md:col-span-2 relative">
+                            <input type="text" id="search-peserta-input" oninput="filterParticipantsTable()" placeholder="Cari nama peserta, unit kerja, atau tim..." class="w-full pl-10 pr-4 py-2.5 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rsblue text-xs font-medium shadow-sm">
+                            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3"></i>
+                        </div>
+                        <div>
+                            <select id="filter-lomba-select" onchange="filterParticipantsTable()" class="w-full py-2.5 px-3 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rsblue text-xs font-bold text-gray-700 shadow-sm">
+                                <option value="Semua">Semua Cabang Lomba</option>
+                                <option value="Mini Soccer">Mini Soccer</option>
+                                <option value="Tarik Tambang">Tarik Tambang</option>
+                                <option value="Voli Sarung">Voli Sarung</option>
+                                <option value="Blind Make Up">Blind Make Up</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Participant Table Container -->
+                    <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+                        <table class="w-full text-left text-xs text-gray-800">
+                            <thead class="bg-rsblue text-white font-bold uppercase tracking-wider text-[11px]">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3.5 w-12 text-center">No</th>
+                                    <th scope="col" class="px-4 py-3.5">Nama Ketua</th>
+                                    <th scope="col" class="px-4 py-3.5">Unit Kerja / Divisi</th>
+                                    <th scope="col" class="px-4 py-3.5">Cabang Lomba</th>
+                                    <th scope="col" class="px-4 py-3.5">Daftar Anggota Tim</th>
+                                    <th scope="col" class="px-4 py-3.5 text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="peserta-tbody" class="divide-y divide-gray-100 font-medium">
+                                <tr>
+                                    <td colspan="6" class="px-4 py-8 text-center text-gray-400">
+                                        <i data-lucide="loader-2" class="w-6 h-6 animate-spin mx-auto mb-2 text-rsblue"></i>
+                                        Memuat data peserta pendaftaran...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-[11px] text-gray-500 italic text-center">
+                        *Jika pendaftaran tim Anda belum muncul beberapa menit setelah mengisi form, silakan klik tombol refresh di atas atau hubungi Ketua Panitia.
+                    </p>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1142,26 +1214,25 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/62895328588407?text=Halo%20Mas%20Rifal,%20saya%20ingin%20bertanya%20seputar%20Semarak%20Kemerdekaan%2081" target="_blank" class="fixed bottom-6 left-6 z-40 bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl hover:bg-emerald-700 hover:scale-110 transition-all flex items-center gap-2 group border-2 border-white">
         <i data-lucide="message-circle" class="w-6 h-6"></i>
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-bold pr-1">Chat Ketua Panitia</span>
     </a>
 
-    <!-- Back To Top Button -->
+    <!-- BACK TO TOP BUTTON -->
     <button id="back-to-top" class="fixed bottom-24 right-6 z-40 hidden bg-rsblue text-white p-3 rounded-full shadow-lg hover:bg-rsbluehover hover:scale-110 transition-all border border-white/30 focus:outline-none">
         <i data-lucide="arrow-up" class="w-5 h-5"></i>
     </button>
 
+    <!-- CHATBOT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
         <button id="chatbot-toggle-btn" class="bg-rsblue text-white p-4 rounded-full shadow-2xl hover:bg-blue-900 hover:scale-105 transition-all flex items-center justify-center relative group border-2 border-rsyellow">
             <i data-lucide="bot" class="w-7 h-7"></i>
             <span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-white animate-bounce shadow">FastBot AI</span>
         </button>
 
-        <!-- Chatbot Window Container -->
         <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-[92vw] sm:w-[400px] h-[540px] bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transition-all duration-300">
-            <!-- Header -->
             <div class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white p-4 flex items-center justify-between shadow-md">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-rsyellow border border-white/20 shadow-inner">
@@ -1177,7 +1248,6 @@
                 </button>
             </div>
 
-            <!-- Messages Box -->
             <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs">
                 <div class="flex items-start gap-2">
                     <div class="w-7 h-7 rounded-full bg-rsblue text-white flex items-center justify-center shrink-0 text-[10px] font-bold shadow">FB</div>
@@ -1186,7 +1256,6 @@
                         <br><br>
                         Mau tanya apa nih? Pendaftaran, rundown, jadwal, lokasi, sponsor/infaq, atau mau komplain hasil pertandingan? Bebas tanya aja, santuy! 😎
                         
-                        <!-- Open Suggestion Pills -->
                         <div class="mt-3 pt-2 border-t border-gray-100 flex flex-wrap gap-1.5">
                             <button onclick="sendQuickMessage('📅 Rundown Detil')" class="px-2.5 py-1 bg-blue-50 hover:bg-rsblue hover:text-white text-rsblue rounded-lg font-semibold text-[11px] transition-colors">📅 Rundown</button>
                             <button onclick="sendQuickMessage('❤️ Infaq / Donatur')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-500 hover:text-white text-amber-800 rounded-lg font-semibold text-[11px] transition-colors">❤️ Donasi/Infaq</button>
@@ -1196,7 +1265,6 @@
                 </div>
             </div>
 
-            <!-- Quick Suggestions Bar -->
             <div class="p-2 bg-gray-100 border-t border-gray-200 flex gap-1.5 overflow-x-auto whitespace-nowrap text-[11px] no-scrollbar">
                 <button onclick="sendQuickMessage('📅 Rundown Acara')" class="px-3 py-1.5 bg-white hover:bg-blue-50 text-rsblue border border-gray-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">📅 Rundown</button>
                 <button onclick="sendQuickMessage('❤️ Donasi / Infaq Lomba')" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-full transition-colors shrink-0 font-bold shadow-sm">❤️ Infaq Lomba</button>
@@ -1205,7 +1273,6 @@
                 <button onclick="sendQuickMessage('💬 WA Ketua Panitia')" class="px-3 py-1.5 bg-green-50 hover:bg-green-100 text-emerald-700 border border-green-200 rounded-full transition-colors shrink-0 font-bold shadow-sm">💬 WA Panitia</button>
             </div>
 
-            <!-- Input Box -->
             <div class="p-3 bg-white border-t border-gray-200 flex items-center gap-2">
                 <input type="text" id="chat-input" placeholder="Ketik apa saja di sini, mimin ngerti kok..." class="flex-grow text-xs border border-gray-300 rounded-full px-4 py-2.5 focus:outline-none focus:border-rsblue focus:ring-1 focus:ring-rsblue shadow-inner">
                 <button id="chat-send-btn" class="bg-rsblue text-white p-2.5 rounded-full hover:bg-blue-900 transition-colors shrink-0 shadow">
@@ -1215,6 +1282,7 @@
         </div>
     </div>
 
+    <!-- IMAGE LIGHTBOX MODAL -->
     <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col">
             <div class="p-4 bg-gray-900 text-white flex justify-between items-center">
@@ -1234,9 +1302,9 @@
         </div>
     </div>
 
+    <!-- DONATUR & SPONSOR MODAL -->
     <div id="donaturModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden border-2 border-amber-300 animate-in fade-in zoom-in duration-300">
-            <!-- Decorative Top Ribbon -->
             <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-400 rounded-full blur-2xl opacity-40"></div>
             <button onclick="closeDonaturModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors">
                 <i data-lucide="x" class="w-5 h-5"></i>
@@ -1309,15 +1377,17 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
 
         // Carousel Slider Logic for Greetings
         const track = document.getElementById('testimonial-track');
@@ -1334,6 +1404,7 @@
         }
 
         function createDots() {
+            if (!dotsContainer) return;
             dotsContainer.innerHTML = '';
             const dotsCount = getDuoCount();
             for (let i = 0; i < dotsCount; i++) {
@@ -1345,6 +1416,7 @@
         }
 
         function updateSliderPosition() {
+            if (!track) return;
             cardsPerView = window.innerWidth >= 768 ? 2 : 1;
             const containerWidth = document.getElementById('slider-container').offsetWidth;
             const gap = 24;
@@ -1357,14 +1429,16 @@
             const moveX = currentIndex * (cardWidth + (cardsPerView === 2 ? gap : 0));
             track.style.transform = `translateX(-${moveX}px)`;
 
-            const dots = dotsContainer.querySelectorAll('button');
-            dots.forEach((dot, idx) => {
-                if (idx === currentIndex) {
-                    dot.className = 'w-7 h-3 rounded-full bg-rsblue transition-all';
-                } else {
-                    dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all';
-                }
-            });
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentIndex) {
+                        dot.className = 'w-7 h-3 rounded-full bg-rsblue transition-all';
+                    } else {
+                        dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all';
+                    }
+                });
+            }
         }
 
         function goToSlide(index) {
@@ -1376,8 +1450,8 @@
             updateSliderPosition();
         }
 
-        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
         window.addEventListener('resize', () => {
             createDots();
@@ -1389,10 +1463,12 @@
         }, 5000);
 
         const sliderBox = document.getElementById('sambutan');
-        sliderBox.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        sliderBox.addEventListener('mouseleave', () => {
-            autoSlideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
-        });
+        if (sliderBox) {
+            sliderBox.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            sliderBox.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+            });
+        }
 
         createDots();
         updateSliderPosition();
@@ -1447,40 +1523,42 @@
         }
 
         // Global Search Filter
-        const searchInput = document.getElementById('global-search-input');
+        const globalSearchInput = document.getElementById('global-search-input');
         const searchCount = document.getElementById('search-results-count');
 
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-            
-            if (query === '') {
-                searchCount.classList.add('hidden');
-                return;
-            }
-
-            let foundCount = 0;
-            const squadIds = ['squad-a', 'squad-b', 'squad-c', 'squad-d', 'group-putra', 'group-putri'];
-            squadIds.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'block';
-            });
-
-            const items = document.querySelectorAll('#squad-futsal .flex, #jadwal li');
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.backgroundColor = '#fef08a';
-                    item.style.padding = '4px';
-                    item.style.borderRadius = '6px';
-                    foundCount++;
-                } else {
-                    item.style.backgroundColor = 'transparent';
+        if (globalSearchInput && searchCount) {
+            globalSearchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                
+                if (query === '') {
+                    searchCount.classList.add('hidden');
+                    return;
                 }
-            });
 
-            searchCount.classList.remove('hidden');
-            searchCount.textContent = `Ditemukan ${foundCount} hasil pencarian untuk "${query}"`;
-        });
+                let foundCount = 0;
+                const squadIds = ['squad-a', 'squad-b', 'squad-c', 'squad-d', 'group-putra', 'group-putri'];
+                squadIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'block';
+                });
+
+                const items = document.querySelectorAll('#squad-futsal .flex, #jadwal li');
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        item.style.backgroundColor = '#fef08a';
+                        item.style.padding = '4px';
+                        item.style.borderRadius = '6px';
+                        foundCount++;
+                    } else {
+                        item.style.backgroundColor = 'transparent';
+                    }
+                });
+
+                searchCount.classList.remove('hidden');
+                searchCount.textContent = `Ditemukan ${foundCount} hasil pencarian untuk "${query}"`;
+            });
+        }
 
         // Tab Navigation for Cabang Lomba
         function openTab(evt, tabName) {
@@ -1579,18 +1657,21 @@
         const chatInput = document.getElementById('chat-input');
         const chatSendBtn = document.getElementById('chat-send-btn');
 
-        chatbotToggleBtn.addEventListener('click', () => {
-            chatbotWindow.classList.toggle('hidden');
-            if (!chatbotWindow.classList.contains('hidden')) {
-                chatInput.focus();
-            }
-        });
+        if (chatbotToggleBtn && chatbotWindow) {
+            chatbotToggleBtn.addEventListener('click', () => {
+                chatbotWindow.classList.toggle('hidden');
+                if (!chatbotWindow.classList.contains('hidden')) {
+                    chatInput.focus();
+                }
+            });
 
-        chatbotCloseBtn.addEventListener('click', () => {
-            chatbotWindow.classList.add('hidden');
-        });
+            chatbotCloseBtn.addEventListener('click', () => {
+                chatbotWindow.classList.add('hidden');
+            });
+        }
 
         function appendMessage(text, isUser = false) {
+            if (!chatMessages) return;
             const msgDiv = document.createElement('div');
             msgDiv.className = `flex items-start gap-2 ${isUser ? 'justify-end' : ''}`;
 
@@ -1614,7 +1695,7 @@
             lucide.createIcons();
         }
 
-        // Smart Intent Engine with Infaq/Donatur & Rundown Support
+        // Smart Intent Engine (Removed Bagan References)
         function getBotReply(userMsg) {
             const cleanText = userMsg.toLowerCase().replace(/[^\w\s]/gi, ' ');
 
@@ -1650,13 +1731,13 @@
                 </a>`;
             }
 
-            if (cleanText.includes('daftar') || cleanText.includes('form') || cleanText.includes('ikut')) {
-                return `📝 **Pendaftaran 100% GRATIS!**
+            if (cleanText.includes('daftar') || cleanText.includes('form') || cleanText.includes('ikut') || cleanText.includes('peserta')) {
+                return `📝 **Pendaftaran & Cek Peserta 100% GRATIS!**
                 <br><br>
-                Langsung isi form online di website atau klik tombol di bawah ini:
+                Anda bisa mengisi form pendaftaran atau langsung mengecek daftar peserta terdaftar secara LIVE di tab Pendaftaran pada website ini.
                 <br><br>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_v4ONny4l9W3rnuzwmODZ27VEbBNrKgKTA2LmyLNztbEivA/viewform" target="_blank" class="inline-flex items-center gap-1.5 bg-rsblue text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-blue-900 transition-colors shadow">
-                    <i data-lucide="clipboard-edit" class="w-3.5 h-3.5"></i> Isi Form Pendaftaran
+                <a href="#pendaftaran" class="inline-flex items-center gap-1.5 bg-rsblue text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-blue-900 transition-colors shadow">
+                    <i data-lucide="clipboard-edit" class="w-3.5 h-3.5"></i> Buka Menu Pendaftaran
                 </a>`;
             }
 
@@ -1683,18 +1764,189 @@
         }
 
         function sendQuickMessage(text) {
-            chatInput.value = text;
-            handleSendMessage();
+            if (chatInput) {
+                chatInput.value = text;
+                handleSendMessage();
+            }
         }
 
-        chatSendBtn.addEventListener('click', handleSendMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSendMessage();
-        });
+        if (chatSendBtn && chatInput) {
+            chatSendBtn.addEventListener('click', handleSendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSendMessage();
+            });
+        }
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // Pendaftaran Sub-Tab Switcher
+        function switchPendaftaranTab(tabId, btn) {
+            const contents = document.getElementsByClassName("pendaftaran-tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            const btns = document.getElementsByClassName("pendaftaran-tab-btn");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active", "bg-rsblue", "text-white", "shadow-md");
+                btns[i].classList.add("bg-gray-100", "text-gray-700");
+            }
+            document.getElementById(tabId).classList.add("active");
+            btn.classList.remove("bg-gray-100", "text-gray-700");
+            btn.classList.add("active", "bg-rsblue", "text-white", "shadow-md");
+
+            if (tabId === 'tab-peserta') {
+                fetchParticipantsFromSheet();
+            }
+        }
+
+        /* ==========================================================================
+           DATA PESERTA TERDAFTAR (FUTSAL MANUAL + GOOGLE SHEETS LIVE)
+           ========================================================================== */
+        let allParticipants = [
+            // Futsal / Mini Soccer Data
+            { ketua: "Muhamad Ainun Najib", unit: "TIM A", lomba: "Mini Soccer", tim: "TIM A", anggota: "Ainun, Ayi, Umam, Sudiro, Rifal, Mahdi, Wylly, Faiq, Dedy", status: "Terverifikasi" },
+            { ketua: "Muhammad Arief Septiawan", unit: "TIM B", lomba: "Mini Soccer", tim: "TIM B", anggota: "Arief, Dava, Annam, Saifullah, Fadhil, Gozali, Septian, Teguh, Arif", status: "Terverifikasi" },
+            { ketua: "Anit", unit: "TIM C", lomba: "Mini Soccer", tim: "TIM C", anggota: "Anit, Ali Rif'an, Heri, Ali Iman, Agus R, Saifuddin, Agus S, Lukman, Rikna", status: "Terverifikasi" },
+            { ketua: "Sudalkan", unit: "TIM D", lomba: "Mini Soccer", tim: "TIM D", anggota: "Sudalkan, Dawam, Dodik, Very, Fakhrul, Maulana, Agus, Didik, Missanto", status: "Terverifikasi" }
+        ];
+
+        // DIRECT LIVE STREAM FROM OFFICIAL GOOGLE SHEET (Panitia Data):
+        const PARTICIPANTS_SHEET_CSV = "https://docs.google.com/spreadsheets/d/19MwS0FMjcQjkfGLU3HqM6xYRYAWgsolYivrSemTgOy8/export?format=csv";
+
+        // Quote-Aware CSV Line Splitter
+        function parseCSVRow(text) {
+            const result = [];
+            let cell = '';
+            let inQuotes = false;
+            for (let i = 0; i < text.length; i++) {
+                const c = text[i];
+                if (c === '"') {
+                    inQuotes = !inQuotes;
+                } else if (c === ',' && !inQuotes) {
+                    result.push(cell.trim().replace(/^"|"$/g, ''));
+                    cell = '';
+                } else {
+                    cell += c;
+                }
+            }
+            result.push(cell.trim().replace(/^"|"$/g, ''));
+            return result;
+        }
+
+        async function fetchParticipantsFromSheet() {
+            try {
+                const response = await fetch(PARTICIPANTS_SHEET_CSV);
+                if (response.ok) {
+                    const csvText = await response.text();
+                    parseParticipantsCSV(csvText);
+                } else {
+                    renderParticipantsTable(allParticipants);
+                }
+            } catch (err) {
+                renderParticipantsTable(allParticipants);
+            }
+        }
+
+        function parseParticipantsCSV(csvText) {
+            const lines = csvText.split(/\r?\n/);
+            if (lines.length <= 1) {
+                renderParticipantsTable(allParticipants);
+                return;
+            }
+
+            // Keep only manually hardcoded Mini Soccer logic, then append from sheets
+            const filteredManual = allParticipants.filter(p => p.lomba === "Mini Soccer");
+            const sheetList = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                const row = parseCSVRow(lines[i]);
+                if (row.length >= 4) {
+                    const lombaVal = row[3] ? row[3].trim().replace(/"/g, '') : 'Umum';
+                    // Skip Futal/Mini soccer from sheets so manual logic isn't duplicated
+                    if (lombaVal.toLowerCase().includes('soccer') || lombaVal.toLowerCase().includes('futsal')) {
+                        continue;
+                    }
+
+                    sheetList.push({
+                        ketua: row[1] ? row[1].trim().replace(/"/g, '') : 'Peserta',
+                        unit: row[2] ? row[2].trim().replace(/"/g, '') : '-',
+                        lomba: lombaVal,
+                        tim: row[4] ? row[4].trim().replace(/"/g, '') : '-',
+                        anggota: row[4] ? row[4].trim().replace(/"/g, '') : (row[1] || '-'),
+                        status: 'Terverifikasi'
+                    });
+                }
+            }
+            
+            allParticipants = [...filteredManual, ...sheetList];
+            renderParticipantsTable(allParticipants);
+        }
+
+        function renderParticipantsTable(data) {
+            const tbody = document.getElementById('peserta-tbody');
+            const badge = document.getElementById('peserta-count-badge');
+            if (!tbody) return;
+
+            if (badge) badge.textContent = `${data.length} Tim / Pendaftar`;
+
+            if (data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-4 py-8 text-center text-gray-400">
+                            Tidak ditemukan data peserta pendaftaran.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = data.map((item, index) => {
+                // Split anggota names based on commas and line breaks for proper badge rendering
+                const anggotaList = item.anggota.split(/,|\n/).map(a => a.trim()).filter(a => a.length > 0);
+                const anggotaHtml = anggotaList.length > 1 
+                    ? `<div class="flex flex-wrap gap-1.5">${anggotaList.map(a => `<span class="bg-blue-50 text-rsblue text-[11px] font-bold px-2 py-1 rounded-md border border-blue-200 shadow-sm">${a}</span>`).join('')}</div>`
+                    : `<span class="text-slate-800 font-semibold bg-slate-100 px-2 py-1 rounded border border-slate-200 inline-block">${item.anggota}</span>`;
+
+                return `
+                    <tr class="hover:bg-blue-50/50 transition-colors">
+                        <td class="px-4 py-4 text-center font-bold text-gray-400 align-top">${index + 1}</td>
+                        <td class="px-4 py-4 font-extrabold text-slate-900 align-top">${item.ketua}</td>
+                        <td class="px-4 py-4 text-slate-600 font-semibold align-top">${item.unit}</td>
+                        <td class="px-4 py-4 font-bold text-rsblue align-top">${item.lomba}</td>
+                        <td class="px-4 py-4 min-w-[250px] align-top">${anggotaHtml}</td>
+                        <td class="px-4 py-4 text-center align-top">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-emerald-200 whitespace-nowrap">
+                                ${item.status}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterParticipantsTable() {
+            const query = document.getElementById('search-peserta-input').value.toLowerCase().trim();
+            const filterLomba = document.getElementById('filter-lomba-select').value;
+
+            const filtered = allParticipants.filter(item => {
+                const matchesSearch = item.ketua.toLowerCase().includes(query) || 
+                                      item.unit.toLowerCase().includes(query) || 
+                                      item.anggota.toLowerCase().includes(query) ||
+                                      item.tim.toLowerCase().includes(query);
+                const matchesLomba = filterLomba === 'Semua' || item.lomba.toLowerCase().includes(filterLomba.toLowerCase());
+                
+                return matchesSearch && matchesLomba;
+            });
+
+            renderParticipantsTable(filtered);
+        }
+
+        // Initialize Everything on Load
+        window.onload = function() {
+            lucide.createIcons();
+            fetchParticipantsFromSheet();
+        };
     </script>
-
 </body>
 </html>
