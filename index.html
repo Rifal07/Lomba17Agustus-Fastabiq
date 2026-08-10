@@ -407,7 +407,7 @@
                     <div>
                         <span class="px-3 py-1 bg-blue-100 text-rsblue text-xs font-bold rounded-full uppercase tracking-wider">Rundown Resmi Hari Ke-2 & 3</span>
                         <h3 class="text-xl sm:text-2xl font-bold text-rsblue mt-1 flex items-center gap-2">
-                            Turnamen Mini Soccer / Futsal
+                            Turnamen Mini Soccer
                         </h3>
                         <p class="text-xs sm:text-sm text-gray-600 mt-0.5">12 & 14 Agustus 2026 • Safin Football Academy</p>
                     </div>
@@ -417,38 +417,201 @@
                 </div>
 
                 <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
-                    <table class="w-full text-left text-xs sm:text-sm text-gray-700">
-                        <thead class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-                            <tr>
-                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-44"><i data-lucide="timer" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Waktu</th>
-                                <th scope="col" class="px-4 py-3.5"><i data-lucide="activity" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> Agenda / Pertandingan</th>
-                                <th scope="col" class="px-4 py-3.5 w-36 sm:w-48"><i data-lucide="user-check" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i> PJ Lapangan</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-100 bg-white">
-                            <tr class="hover:bg-blue-50/50 transition-colors">
-                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">07.30 - 08.00 WIB</span></td>
-                                <td class="px-4 py-3 font-semibold text-gray-900">Briefing Wasit, Pemanggilan Skuad & Checking Shinguard</td>
-                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">dr. Teguh & Pak Ali</span></td>
-                            </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
-                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">08.00 - 09.30 WIB</span></td>
-                                <td class="px-4 py-3 font-bold text-gray-900">Match 1: Tim A vs Tim B (Babak Penyisihan)</td>
-                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Wasit Resmi & PJ</span></td>
-                            </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
-                                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap"><span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">09.30 - 11.00 WIB</span></td>
-                                <td class="px-4 py-3 font-bold text-gray-900">Match 2: Tim C vs Tim D (Babak Penyisihan)</td>
-                                <td class="px-4 py-3"><span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">Wasit Resmi & PJ</span></td>
-                            </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors bg-amber-50/50">
-                                <td class="px-4 py-3 font-extrabold text-amber-800 whitespace-nowrap"><span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200">14.00 - 16.00 WIB</span></td>
-                                <td class="px-4 py-3 font-extrabold text-gray-900">🏆 Babak Final & Perebutan Juara 3 (14 Agustus)</td>
-                                <td class="px-4 py-3"><span class="font-bold text-rsblue bg-blue-100 px-2.5 py-1 rounded-lg inline-block">Panitia & BPH</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <table class="w-full text-left text-xs sm:text-sm text-gray-700">
+        <thead class="bg-gradient-to-r from-rsblue via-blue-900 to-secondary text-white font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+            <tr>
+                <th scope="col" class="px-4 py-3.5 w-36 sm:w-44">
+                    <i data-lucide="timer" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i>
+                    Waktu
+                </th>
+
+                <th scope="col" class="px-4 py-3.5">
+                    <i data-lucide="trophy" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i>
+                    Pertandingan
+                </th>
+
+                <th scope="col" class="px-4 py-3.5 w-36 sm:w-48">
+                    <i data-lucide="flag" class="w-3.5 h-3.5 inline mr-1 text-rsyellow"></i>
+                    Keterangan
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-100 bg-white">
+
+            <!-- MATCH 1 -->
+            <tr class="hover:bg-blue-50/50 transition-colors">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        15.15 - 15.35
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 1: Tim A
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim B
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- MATCH 2 -->
+            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        15.35 - 15.55
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 2: Tim C
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim D
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- MATCH 3 -->
+            <tr class="hover:bg-blue-50/50 transition-colors">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        15.55 - 16.15
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 3: Tim A
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim C
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- MATCH 4 -->
+            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        16.15 - 16.35
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 4: Tim B
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim D
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- MATCH 5 -->
+            <tr class="hover:bg-blue-50/50 transition-colors">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        16.35 - 16.55
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 5: Tim A
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim D
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- MATCH 6 -->
+            <tr class="hover:bg-blue-50/50 transition-colors bg-blue-50/30">
+                <td class="px-4 py-3 font-extrabold text-rsblue whitespace-nowrap">
+                    <span class="bg-blue-50 text-rsblue px-2.5 py-1 rounded-md border border-blue-100">
+                        16.55 - 17.15
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-bold text-gray-900">
+                    Match 6: Tim B
+                    <span class="text-gray-400 mx-1">vs</span>
+                    Tim C
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-lg inline-block">
+                        Penyisihan
+                    </span>
+                </td>
+            </tr>
+
+            <!-- JUARA 3 -->
+            <tr class="hover:bg-amber-50 transition-colors bg-amber-50/50">
+                <td class="px-4 py-3 font-extrabold text-amber-800 whitespace-nowrap">
+                    <span class="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-200">
+                        15.20 - 16.00
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-extrabold text-gray-900">
+                    🥉 Perebutan Juara 3:
+                    <span class="text-gray-700">
+                        Rank 3 vs Rank 4
+                    </span>
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-lg inline-block">
+                        Perebutan Juara 3
+                    </span>
+                </td>
+            </tr>
+
+            <!-- JUARA 1 -->
+            <tr class="hover:bg-red-50 transition-colors bg-red-50/50">
+                <td class="px-4 py-3 font-extrabold text-red-700 whitespace-nowrap">
+                    <span class="bg-red-100 text-red-800 px-2.5 py-1 rounded-md border border-red-200">
+                        16.15 - 16.55
+                    </span>
+                </td>
+
+                <td class="px-4 py-3 font-extrabold text-gray-900">
+                    🏆 Grand Final:
+                    <span class="text-gray-700">
+                        Rank 1 vs Rank 2
+                    </span>
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-lg inline-block">
+                        Perebutan Juara 1
+                    </span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
             </div>
 
             <!-- RUNDOWN TAB 3: BLIND MAKE UP -->
