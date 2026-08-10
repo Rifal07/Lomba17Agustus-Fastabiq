@@ -173,132 +173,169 @@
     </section>
 
     <section id="sambutan" class="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Pesan & Kesan</span>
-                <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
-                    <i data-lucide="message-square-quote" class="w-8 h-8 text-primary"></i> Sambutan Pimpinan & Panitia
-                </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm">Arahan dan semangat dari jajaran Badan Pembina Harian (BPH), Direksi RSU Fastabiq Sehat PKU Muhammadiyah, serta Panitia Penyelenggara.</p>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="text-center mb-10">
+        <span class="text-xs font-bold text-rsblue uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Pesan & Kesan</span>
+        <h2 class="text-3xl font-bold text-rsblue mt-3 mb-2 flex items-center justify-center gap-2">
+            <i data-lucide="message-square-quote" class="w-8 h-8 text-primary"></i> Sambutan Pimpinan & Panitia
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto text-sm">Arahan dan semangat dari jajaran Badan Pembina Harian (BPH), Direksi RSU Fastabiq Sehat PKU Muhammadiyah, serta Panitia Penyelenggara.</p>
+    </div>
 
-            <div class="relative max-w-6xl mx-auto px-2 md:px-12">
-                <div class="overflow-hidden rounded-3xl p-2" id="slider-container">
-                    <div class="testimonial-slider flex gap-6" id="testimonial-track">
-                        
-                        <!-- Card 1: BPH 1 -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-blue-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-100/80"></i>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-blue-50 text-rsblue text-xs font-bold rounded-md mb-4">BPH RSU Fastabiq</span>
-                                <p class="text-gray-700 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Kemerdekaan adalah momentum untuk terus berfastabiqul khairat. Mari jadikan Semarak 81 ini sebagai ajang mempererat tali silaturahmi antar karyawan dan tenaga kesehatan."</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-                                <img src="https://placehold.co/120x120/1e3a8a/ffffff?text=Ketua+BPH" alt="Ketua BPH" class="w-14 h-14 rounded-full object-cover border-2 border-rsblue shadow-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-900 text-base">Ketua BPH</h4>
-                                    <p class="text-xs text-primary font-semibold">BPH RSU Fastabiq Sehat</p>
-                                </div>
-                            </div>
+    <div class="relative max-w-6xl mx-auto px-2 md:px-12">
+        <div class="overflow-hidden rounded-3xl p-2" id="slider-container">
+            <div class="testimonial-slider flex gap-6" id="testimonial-track">
+                
+                <!-- Card 1: BPH 1 -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-blue-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-100/80"></i>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-blue-50 text-rsblue text-xs font-bold rounded-md mb-4">BPH RSU Fastabiq</span>
+                        <p class="quote-text text-gray-700 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Kemerdekaan adalah momentum untuk terus berfastabiqul khairat. Mari jadikan Semarak 81 ini sebagai ajang mempererat tali silaturahmi antar karyawan dan tenaga kesehatan."
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-rsblue hover:underline mb-6 block focus:outline-none">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                        <img src="https://placehold.co/120x120/1e3a8a/ffffff?text=Ketua+BPH" alt="Ketua BPH" class="author-img w-14 h-14 rounded-full object-cover border-2 border-rsblue shadow-sm">
+                        <div>
+                            <h4 class="author-name font-bold text-gray-900 text-base">Ketua BPH</h4>
+                            <p class="author-role text-xs text-primary font-semibold">BPH RSU Fastabiq Sehat</p>
                         </div>
-
-                        <!-- Card 2: BPH 2 -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-blue-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-100/80"></i>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-blue-50 text-rsblue text-xs font-bold rounded-md mb-4">BPH RSU Fastabiq</span>
-                                <p class="text-gray-700 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Melalui kegiatan ini, kita rajut kebersamaan demi menguatkan pengabdian paripurna kepada masyarakat, persyarikatan, dan bangsa tercinta."</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-                                <img src="https://placehold.co/120x120/1e3a8a/ffffff?text=BPH+2" alt="Anggota BPH" class="w-14 h-14 rounded-full object-cover border-2 border-rsblue shadow-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-900 text-base">Anggota BPH</h4>
-                                    <p class="text-xs text-primary font-semibold">BPH RSU Fastabiq Sehat</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Direktur Utama -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi</span>
-                                <p class="text-gray-700 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Junjung tinggi sportivitas di setiap perlombaan. Kemenangan sejati adalah saat kita mampu menaklukkan ego dan bersinergi sebagai satu keluarga besar."</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-                                <img src="https://placehold.co/120x120/dc2626/ffffff?text=Dirut" alt="Direktur Utama" class="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-900 text-base">Direktur Utama</h4>
-                                    <p class="text-xs text-rsblue font-semibold">Direksi RSU Fastabiq Sehat</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Direktur Pelayanan Medis -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi Medis</span>
-                                <p class="text-gray-700 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Rumah Sakit tidak menjadi hebat karena satu orang. RS menjadi hebat ketika banyak orang dengan kekuatan yang berbeda memilih untuk berdiri di barisan yang sama. Lomba-lomba ini mungkin mempertemukan kita dalam sebuah kompetisi, tetapi juga mengingatkan bahwa di balik setiap perbedaan kita memiliki satu tujuan yang sama yakni tumbuh bersama, saling menguatkan dan memberikan persembahan terbaik.
-
-Karena pada akhirnya, yang kita bangun bukan sekadar kemenangan dalam sebuah perlombaan, tetapi kekuatan sebuah tim yang akan membawa RS ini melangkah lebih jauh."</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-                                <img src="dir medis.jpg" alt="Direktur Pelayanan " class="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-900 text-base">dr. Eirna Syam Fitri, MMR., FISQua.</h4>
-                                    <p class="text-xs text-rsblue font-semibold">Direktur Medis RSU Fastabiq Sehat
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Direktur Umum -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi Umum</span>
-                                <p class="text-gray-700 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Kegiatan ini difasilitasi penuh untuk refreshing sejenak dari rutinitas harian. Manfaatkan momen ini untuk memperkuat team work di setiap unit kerja."</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-                                <img src="https://placehold.co/120x120/dc2626/ffffff?text=Dir+Umum" alt="Direktur Umum" class="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
-                                <div>
-                                    <h4 class="font-bold text-gray-900 text-base">Direktur Umum</h4>
-                                    <p class="text-xs text-rsblue font-semibold">Direksi RSU Fastabiq Sehat</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 6: Ketua Panitia (Rifal Budi Yuliano) -->
-                        <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-gradient-to-br from-rsblue to-blue-900 text-white p-6 sm:p-7 rounded-2xl shadow-lg relative overflow-hidden flex flex-col justify-between">
-                            <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-700 opacity-40"></i>
-                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-rsyellow opacity-20 rounded-full blur-2xl"></div>
-                            <div>
-                                <span class="inline-block px-3 py-1 bg-white/20 text-rsyellow text-xs font-bold rounded-md mb-4">Panitia Pelaksana</span>
-                                <p class="text-blue-50 text-sm sm:text-base italic mb-6 relative z-10 leading-relaxed">"Kami segenap panitia telah mempersiapkan rangkaian Semarak 81 ini dengan maksimal. Ayo daftarkan tim unit Anda, mari bersenang-senang dan ukir kenangan indah bersama!"</p>
-                            </div>
-                            <div class="flex items-center gap-4 pt-4 border-t border-blue-800/60 relative z-10">
-                                <img src="https://placehold.co/120x120/eab308/1e3a8a?text=Rifal+BY" alt="Rifal Budi Yuliano" class="w-14 h-14 rounded-full object-cover border-2 border-rsyellow shadow-md">
-                                <div>
-                                    <h4 class="font-bold text-white text-base">Rifal Budi Yuliano</h4>
-                                    <p class="text-xs text-rsyellow font-semibold">Ketua Panitia Semarak 81</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <button id="slider-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-5 w-11 h-11 bg-white text-rsblue rounded-full shadow-lg border border-gray-100 flex items-center justify-center hover:bg-rsblue hover:text-white transition-all z-20 focus:outline-none">
-                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                </button>
-                <button id="slider-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-5 w-11 h-11 bg-white text-rsblue rounded-full shadow-lg border border-gray-100 flex items-center justify-center hover:bg-rsblue hover:text-white transition-all z-20 focus:outline-none">
-                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                </button>
+                <!-- Card 2: BPH 2 -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-blue-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-100/80"></i>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-blue-50 text-rsblue text-xs font-bold rounded-md mb-4">BPH RSU Fastabiq</span>
+                        <p class="quote-text text-gray-700 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Melalui kegiatan ini, kita rajut kebersamaan demi menguatkan pengabdian paripurna kepada masyarakat, persyarikatan, dan bangsa tercinta."
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-rsblue hover:underline mb-6 block focus:outline-none">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                        <img src="https://placehold.co/120x120/1e3a8a/ffffff?text=BPH+2" alt="Anggota BPH" class="author-img w-14 h-14 rounded-full object-cover border-2 border-rsblue shadow-sm">
+                        <div>
+                            <h4 class="author-name font-bold text-gray-900 text-base">Anggota BPH</h4>
+                            <p class="author-role text-xs text-primary font-semibold">BPH RSU Fastabiq Sehat</p>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="flex justify-center items-center gap-2 mt-6" id="slider-dots"></div>
+                <!-- Card 3: Direktur Utama -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi</span>
+                        <p class="quote-text text-gray-700 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Junjung tinggi sportivitas di setiap perlombaan. Kemenangan sejati adalah saat kita mampu menaklukkan ego dan bersinergi sebagai satu keluarga besar."
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-primary hover:underline mb-6 block focus:outline-none">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                        <img src="https://placehold.co/120x120/dc2626/ffffff?text=Dirut" alt="Direktur Utama" class="author-img w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
+                        <div>
+                            <h4 class="author-name font-bold text-gray-900 text-base">Direktur Utama</h4>
+                            <p class="author-role text-xs text-rsblue font-semibold">Direksi RSU Fastabiq Sehat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Direktur Pelayanan Medis -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi Medis</span>
+                        <p class="quote-text text-gray-700 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Rumah Sakit tidak menjadi hebat karena satu orang. Rumah Sakit menjadi hebat ketika banyak orang dengan kekuatan yang berbeda memilih untuk berdiri di barisan yang sama. Lomba-lomba ini mungkin mempertemukan kita dalam sebuah kompetisi, tetapi juga mengingatkan bahwa di balik setiap perbedaan kita memiliki satu tujuan yang sama yakni tumbuh bersama, saling menguatkan dan memberikan persembahan terbaik. Karena pada akhirnya, yang kita bangun bukan sekadar kemenangan dalam sebuah perlombaan, tetapi kekuatan sebuah tim yang akan membawa RS ini melangkah lebih jauh."
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-primary hover:underline mb-6 block focus:outline-none">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                        <img src="dir medis.jpg" alt="Direktur Pelayanan" class="author-img w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
+                        <div>
+                            <h4 class="author-name font-bold text-gray-900 text-base">dr. Eirna Syam Fitri, MMR., FISQua.</h4>
+                            <p class="author-role text-xs text-rsblue font-semibold">Direktur Medis RSU Fastabiq Sehat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Direktur Umum -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-white p-6 sm:p-7 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between relative hover:shadow-lg transition-all">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-red-100/80"></i>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-red-50 text-primary text-xs font-bold rounded-md mb-4">Direksi Umum</span>
+                        <p class="quote-text text-gray-700 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Kegiatan ini difasilitasi penuh untuk refreshing sejenak dari rutinitas harian. Manfaatkan momen ini untuk memperkuat team work di setiap unit kerja."
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-primary hover:underline mb-6 block focus:outline-none">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+                        <img src="https://placehold.co/120x120/dc2626/ffffff?text=Dir+Umum" alt="Direktur Umum" class="author-img w-14 h-14 rounded-full object-cover border-2 border-primary shadow-sm">
+                        <div>
+                            <h4 class="author-name font-bold text-gray-900 text-base">Direktur Umum</h4>
+                            <p class="author-role text-xs text-rsblue font-semibold">Direksi RSU Fastabiq Sehat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Ketua Panitia (Rifal Budi Yuliano) -->
+                <div class="testimonial-card w-full md:w-[calc(50%-12px)] shrink-0 bg-gradient-to-br from-rsblue to-blue-900 text-white p-6 sm:p-7 rounded-2xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-blue-700 opacity-40"></i>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-rsyellow opacity-20 rounded-full blur-2xl"></div>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-white/20 text-rsyellow text-xs font-bold rounded-md mb-4">Panitia Pelaksana</span>
+                        <p class="quote-text text-blue-50 text-sm sm:text-base italic mb-2 relative z-10 leading-relaxed line-clamp-3">
+                            "Kami segenap panitia telah mempersiapkan rangkaian Semarak 81 ini dengan maksimal. Ayo daftarkan tim unit Anda, mari bersenang-senang dan ukir kenangan indah bersama!"
+                        </p>
+                        <button onclick="openModal(this)" class="text-xs font-semibold text-rsyellow hover:underline mb-6 block focus:outline-none relative z-10">Baca Selengkapnya &rarr;</button>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-blue-800/60 relative z-10">
+                        <img src="https://placehold.co/120x120/eab308/1e3a8a?text=Rifal+BY" alt="Rifal Budi Yuliano" class="author-img w-14 h-14 rounded-full object-cover border-2 border-rsyellow shadow-md">
+                        <div>
+                            <h4 class="author-name font-bold text-white text-base">Rifal Budi Yuliano</h4>
+                            <p class="author-role text-xs text-rsyellow font-semibold">Ketua Panitia Semarak 81</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <button id="slider-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-5 w-11 h-11 bg-white text-rsblue rounded-full shadow-lg border border-gray-100 flex items-center justify-center hover:bg-rsblue hover:text-white transition-all z-20 focus:outline-none">
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button id="slider-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-5 w-11 h-11 bg-white text-rsblue rounded-full shadow-lg border border-gray-100 flex items-center justify-center hover:bg-rsblue hover:text-white transition-all z-20 focus:outline-none">
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+
+        <div class="flex justify-center items-center gap-2 mt-6" id="slider-dots"></div>
+    </div>
+</div>
+
+<!-- MODAL POPUP -->
+<div id="quoteModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden transition-opacity duration-300">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl transform transition-transform duration-300 scale-95" id="modalContent">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 focus:outline-none">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        
+        <div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-100">
+            <img id="modalImg" src="" alt="" class="w-16 h-16 rounded-full object-cover border-2 border-rsblue shadow-sm">
+            <div>
+                <h3 id="modalName" class="font-bold text-gray-900 text-lg"></h3>
+                <p id="modalRole" class="text-xs text-primary font-semibold"></p>
+            </div>
+        </div>
+
+        <div class="relative">
+            <i data-lucide="quote" class="absolute -top-2 -left-2 w-8 h-8 text-blue-100 -z-0"></i>
+            <p id="modalText" class="text-gray-700 text-sm sm:text-base italic leading-relaxed relative z-10 whitespace-pre-line"></p>
+        </div>
+    </div>
+</div>
     </section>
 
     <section id="rundown" class="py-16 bg-white border-t border-gray-200">
@@ -2113,6 +2150,52 @@ Karena pada akhirnya, yang kita bangun bukan sekadar kemenangan dalam sebuah per
             lucide.createIcons();
             fetchParticipantsFromSheet();
         };
+
+
+
     </script>
+    <script>
+    function openModal(btn) {
+        const card = btn.closest('.testimonial-card');
+        
+        const text = card.querySelector('.quote-text').innerText;
+        const name = card.querySelector('.author-name').innerText;
+        const role = card.querySelector('.author-role').innerText;
+        const imgSrc = card.querySelector('.author-img').getAttribute('src');
+
+        document.getElementById('modalText').innerText = text;
+        document.getElementById('modalName').innerText = name;
+        document.getElementById('modalRole').innerText = role;
+        document.getElementById('modalImg').setAttribute('src', imgSrc);
+
+        const modal = document.getElementById('quoteModal');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.add('opacity-100');
+            document.getElementById('modalContent').classList.remove('scale-95');
+            document.getElementById('modalContent').classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('quoteModal');
+        document.getElementById('modalContent').classList.remove('scale-100');
+        document.getElementById('modalContent').classList.add('scale-95');
+        modal.classList.remove('opacity-100');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 200);
+    }
+
+    // Tutup modal jika user klik di luar kotak modal
+    document.getElementById('quoteModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+</script>
+
+
 </body>
 </html>
